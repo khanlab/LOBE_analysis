@@ -1,6 +1,9 @@
 import re
 from snakebids import bids
 
+from snakebids import set_bids_spec
+set_bids_spec("v0_0_0")
+
 configfile: 'config/config.yml'
     
 include: 'rules/zipfiles.smk'
