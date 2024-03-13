@@ -1,0 +1,105 @@
+
+#files in one big zip file
+in_agg_zip: 
+  snakebatch: '/home/ROBARTS/alik/graham/cfmm-bids/Khan/LOBE/derivatives/snakebatch_LOBE_HCP_2023_09_23.zip'
+
+in_subj_zip:
+  freesurfer: '/path/to/freesurfer/sub-{subject}_freesurfer.zip'  
+
+
+  #to find paths below, use: unzip -l /home/ROBARTS/alik/graham/cfmm-bids/Khan/LOBE/derivatives/snakebatch_LOBE_HCP_2023_09_23.zip | less
+
+
+input_path: #TODO - add dataset wildcard
+  dwi_nii: 'snakebatch/{dataset}/derivatives/snakedwi/snakedwi/sub-{subject}/dwi/sub-{subject}_space-T1w_res-orig_desc-eddy_dwi.nii.gz'
+  dwi_mask: 'snakebatch/{dataset}/derivatives/snakedwi/snakedwi/sub-{subject}/dwi/sub-{subject}_space-T1w_res-orig_desc-brain_mask.nii.gz'
+  bold_nii:     
+    HCP: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/func/sub-{subject}_task-rest_acq-AP_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz'
+    LOBE: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/func/sub-{subject}_task-rest_acq-AP_run-1_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz'
+  bold_json: 
+    HCP: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/func/sub-{subject}_task-rest_acq-AP_space-MNI152NLin2009cAsym_desc-preproc_bold.json'
+    LOBE: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/func/sub-{subject}_task-rest_acq-AP_run-1_space-MNI152NLin2009cAsym_desc-preproc_bold.json'
+  bold_confounds: 
+    HCP: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/func/sub-{subject}_task-rest_acq-AP_desc-confounds_timeseries.tsv'
+    LOBE: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/func/sub-{subject}_task-rest_acq-AP_run-1_desc-confounds_timeseries.tsv'
+  bold_mask: 
+    HCP: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/func/sub-{subject}_task-rest_acq-AP_space-MNI152NLin2009cAsym_desc-brain_mask.nii.gz'
+    LOBE: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/func/sub-{subject}_task-rest_acq-AP_run-1_space-MNI152NLin2009cAsym_desc-brain_mask.nii.gz'
+  t1_mask:
+    HCP: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/anat/sub-{subject}_desc-brain_mask.nii.gz'
+    LOBE: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/anat/sub-{subject}_acq-MPRvNavAvgEcho12_run-1_desc-brain_mask.nii.gz'
+
+
+
+root: results
+
+
+subj_wildcards:
+  subject: '{subject}'
+
+
+datasets:
+  - HCP
+  - LOBE
+
+subjects: 
+  HCP:
+   - 'HCD0277447'
+  LOBE:
+   - '007'
+
+
+mrtproc:
+  shells: 
+    - '0'
+    - '1500'
+    - '3000'
+
+  lmax: 
+    - '0'
+    - '8'
+    - '8'
+
+  sl_count: 10000
+  parcellation: TBD
+
+
+fmri:
+
+  atlas:
+    - schaefer
+
+  fwhm:
+    - 5
+  space:
+    - MNI152NLin2009cAsym
+
+  task:
+    - rest
+
+  denoise:
+    24HMP8PhysSpikeReg:
+      clean_img_opts:
+        standardize: True
+        detrend: False
+        low_pass: 0.08
+        high_pass: 0.01
+      confounds_name:
+        - csf 
+        - csf_derivative1 
+        - csf_derivative1_power2
+        - csf_power2 
+      confounds_like:
+        - white_matter
+        - trans
+        - rot
+        - motion_outlier
+        - steady_state_outlier
+
+
+
+
+
+singularity:
+  mrtrix: 'docker://mrtrix3/mrtrix3:3.0.3'
+

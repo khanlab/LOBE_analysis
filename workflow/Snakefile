@@ -1,0 +1,8 @@
+import re
+from snakebids import bids
+
+configfile: 'config/config.yml'
+    
+include: 'rules/zipfiles.smk'
+include: 'rules/mrtproc.smk'
+include: 'rules/fmri.smk'
