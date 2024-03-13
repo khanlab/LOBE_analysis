@@ -9,6 +9,8 @@ packages = [{include = "lobe_analysis"}]
 
 [tool.poetry.dependencies]
 python = ">=3.11,<4.0"
+snakemake = ">=7.20,<8"
+pulp = "<2.8.0"
 snakebids = "^0.11.2"
 nilearn = "^0.10.3"
 matplotlib = "^3.8.3"
