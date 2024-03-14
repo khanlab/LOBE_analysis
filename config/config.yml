@@ -6,11 +6,8 @@ in_agg_zip:
 in_subj_zip:
   freesurfer: '/path/to/freesurfer/sub-{subject}_freesurfer.zip'  
 
-
-  #to find paths below, use: unzip -l /home/ROBARTS/alik/graham/cfmm-bids/Khan/LOBE/derivatives/snakebatch_LOBE_HCP_2023_09_23.zip | less
-
-
-input_path: #TODO - add dataset wildcard
+#to find paths below, use: unzip -l /home/ROBARTS/alik/graham/cfmm-bids/Khan/LOBE/derivatives/snakebatch_LOBE_HCP_2023_09_23.zip | less
+input_path: 
   dwi_nii: 'snakebatch/{dataset}/derivatives/snakedwi/snakedwi/sub-{subject}/dwi/sub-{subject}_space-T1w_res-orig_desc-eddy_dwi.nii.gz'
   dwi_mask: 'snakebatch/{dataset}/derivatives/snakedwi/snakedwi/sub-{subject}/dwi/sub-{subject}_space-T1w_res-orig_desc-brain_mask.nii.gz'
   bold_nii:     
@@ -28,11 +25,12 @@ input_path: #TODO - add dataset wildcard
   t1_mask:
     HCP: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/anat/sub-{subject}_desc-brain_mask.nii.gz'
     LOBE: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/anat/sub-{subject}_acq-MPRvNavAvgEcho12_run-1_desc-brain_mask.nii.gz'
+  surf_gii: 'snakebatch/{dataset}/derivatives/snakeanat/sourcedata/ciftify/sub-{subject}/T1w/fsaverage_LR32k/sub-{subject}.{hemi}.{surf}.32k_fs_LR.surf.gii'
+
 
 
 
 root: results
-
 
 subj_wildcards:
   subject: '{subject}'
@@ -48,6 +46,8 @@ subjects:
   LOBE:
    - '007'
 
+atlas:
+  schaefer: resources/schaefer_2018/Schaefer2018_300Parcels_7Networks_order.dlabel.nii
 
 mrtproc:
   shells: 
@@ -61,7 +61,6 @@ mrtproc:
     - '8'
 
   sl_count: 10000
-  parcellation: TBD
 
 
 fmri:
@@ -101,5 +100,5 @@ fmri:
 
 
 singularity:
-  mrtrix: 'docker://mrtrix3/mrtrix3:3.0.3'
+  mrtrix: 'docker://mrtrix3/mrtrix3:3.0.4'
 

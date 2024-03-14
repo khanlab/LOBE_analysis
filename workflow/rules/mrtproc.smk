@@ -6,44 +6,41 @@ from os.path import join
 root = os.path.join(config["root"], "{dataset}","mrtrix")
 
 
-# ---- end snakebids boilerplate ------------------------------------------------
 
 # Mrtrix3 citation (additional citations are included per rule as necessary):
 # Tournier, J.-D.; Smith, R. E.; Raffelt, D.; Tabbara, R.; Dhollander, T.; Pietsch, M.; Christiaens, D.; Jeurissen, B.; Yeh, C.-H. & Connelly, A. MRtrix3: A fast, flexible and open software framework for medical image processing and visualisation. NeuroImage, 2019, 202, 116137
 
 
-threads: 8
 
+def get_mrtproc_targets():
+    targets=[]
+    for dataset in config['datasets']:
+        targets.extend( 
+            expand(
+            bids(
+            root=root,
+            datatype='tractography',
+            atlas='{atlas}',
+            suffix='conn.csv',
+            **config['subj_wildcards'],
+        ),
+        subject=config['subjects'][dataset],
+        dataset=dataset,
+        atlas=config['fmri']['atlas']
+        ))
+    return targets
+
+ 
 rule all_mrtproc:
-    input:
-        expand(
-            bids(
-            root=root,
-            datatype='tractography',
-            suffix='conn.csv',
-            **config['subj_wildcards'],
-        ),
-        subject=config['subjects']['LOBE'],
-        dataset='LOBE',
-        ),
-        expand(
-            bids(
-            root=root,
-            datatype='tractography',
-            suffix='conn.csv',
-            **config['subj_wildcards'],
-        ),
-        subject=config['subjects']['HCP'],
-        dataset='HCP',
-        )
+    input: 
+        get_mrtproc_targets()
 
-#----------- MRTRIX PREPROC BEGIN ------------#
-rule nii2mif:
+
+rule dwi2mif:
     input:
         dwi=config["input_path"]["dwi_nii"],
         bval=lambda wildcards: re.sub(".nii.gz", '.bval', config["input_path"]["dwi_nii"]),
         bvec=lambda wildcards: re.sub(".nii.gz", '.bvec', config["input_path"]["dwi_nii"]),
-        mask=config['input_path']['dwi_mask']
     output:
         dwi=bids(
             root=root,
@@ -51,27 +48,20 @@ rule nii2mif:
             suffix='dwi.mif',
             **config['subj_wildcards'],
         ),
-        mask=bids(
-            root=root,
-            datatype='dwi',
-            suffix='mask.mif',
-            **config['subj_wildcards'],
-        )
-    threads: workflow.cores
+    threads: 8
     group: "subj1"
     container:
         config['singularity']['mrtrix']
     shell:
-        'mrconvert {input.dwi} {output.dwi} -fslgrad {input.bvec} {input.bval} -nthreads {threads} && '
-        'mrconvert {input.mask} {output.mask} -nthreads {threads}'
+        'mrconvert {input.dwi} {output.dwi} -fslgrad {input.bvec} {input.bval} -nthreads {threads}'
+
+
 
 rule dwi2response:
     # Dhollander, T.; Mito, R.; Raffelt, D. & Connelly, A. Improved white matter response function estimation for 3-tissue constrained spherical deconvolution. Proc Intl Soc Mag Reson Med, 2019, 555
     input:
-        dwi=rules.nii2mif.output.dwi,
-        mask=rules.nii2mif.output.mask,
-        bval=lambda wildcards: re.sub(".nii.gz", '.bval', config["input_path"]["dwi_nii"]),
-        bvec=lambda wildcards: re.sub(".nii.gz", '.bvec', config["input_path"]["dwi_nii"]),
+        dwi=rules.dwi2mif.output.dwi,
+        mask=config['input_path']['dwi_mask'],
     params:
         shells=','.join(config['mrtproc']['shells']),
         lmax=','.join(config['mrtproc']['lmax'])
@@ -97,18 +87,18 @@ rule dwi2response:
             suffix='response.txt',
             **config['subj_wildcards'],
         )
-    threads: workflow.cores
+    threads: 8
     group: "subj1"
     container:
         config['singularity']['mrtrix']
     shell:
-        'dwi2response dhollander {input.dwi} {output.wm_rf} {output.gm_rf} {output.csf_rf} -fslgrad {input.bvec} {input.bval} -nthreads {threads} -shells {params.shells} -lmax {params.lmax} -mask {input.mask}'
+        'dwi2response dhollander {input.dwi} {output.wm_rf} {output.gm_rf} {output.csf_rf}  -nthreads {threads} -shells {params.shells} -lmax {params.lmax} -mask {input.mask}'
 
 rule dwi2fod:
     # Jeurissen, B; Tournier, J-D; Dhollander, T; Connelly, A & Sijbers, J. Multi-tissue constrained spherical deconvolution for improved analysis of multi-shell diffusion MRI data. NeuroImage, 2014, 103, 411-426
     input:
-        dwi=rules.nii2mif.output.dwi,
-        mask=rules.nii2mif.output.mask,
+        dwi=rules.dwi2mif.output.dwi,
+        mask=config['input_path']['dwi_mask'],
         wm_rf=rules.dwi2response.output.wm_rf,
         gm_rf=rules.dwi2response.output.gm_rf,
         csf_rf=rules.dwi2response.output.csf_rf,
@@ -136,7 +126,7 @@ rule dwi2fod:
             suffix='fod.mif',
             **config['subj_wildcards'],
         ),
-    threads: workflow.cores
+    threads: 8
     group: "subj2"
     container:
         config['singularity']['mrtrix']
@@ -150,7 +140,7 @@ rule mtnormalise:
         wm_fod=rules.dwi2fod.output.wm_fod,
         gm_fod=rules.dwi2fod.output.gm_fod,
         csf_fod=rules.dwi2fod.output.csf_fod,
-        mask=rules.nii2mif.output.mask,
+        mask=config['input_path']['dwi_mask'],
     output:
         wm_fod=bids(
             root=root,
@@ -173,7 +163,7 @@ rule mtnormalise:
             suffix='csf_fod.mif',
             **config['subj_wildcards'],
         ),
-    threads: workflow.cores
+    threads: 8
     group: "subj2"
     container:
         config['singularity']['mrtrix']
@@ -182,7 +172,7 @@ rule mtnormalise:
 
 rule dwi2tensor:
     input:
-        rules.nii2mif.output.dwi
+        rules.dwi2mif.output.dwi
     output:
         tensor=bids(
             root=root,
@@ -199,7 +189,7 @@ rule dwi2tensor:
 rule tensor2metrics:
     input:
         tensor=rules.dwi2tensor.output.tensor,
-        mask=rules.nii2mif.output.mask
+        mask=config['input_path']['dwi_mask'],
     output:
         fa=bids(
             root=root,
@@ -238,8 +228,8 @@ rule tckgen:
     # Tournier, J.-D.; Calamante, F. & Connelly, A. Improved probabilistic streamlines tractography by 2nd order integration over fibre orientation distributions. Proceedings of the International Society for Magnetic Resonance in Medicine, 2010, 1670
     input:
         wm_fod=rules.mtnormalise.output.wm_fod,
-        dwi=rules.nii2mif.output.dwi,
-        mask=rules.nii2mif.output.mask,
+        dwi=rules.dwi2mif.output.dwi,
+        mask=config['input_path']['dwi_mask'],
         seed=rules.create_seed.output.seed
     params:
         streamlines=config['mrtproc']['sl_count'],
@@ -252,7 +242,7 @@ rule tckgen:
             suffix='tractography.tck',
             **config['subj_wildcards'],
         )
-    threads: workflow.cores
+    threads: 8
     group: "subj2"
     container:
         config['singularity']['mrtrix']
@@ -280,7 +270,7 @@ rule tcksift2:
             suffix='mu.txt',
             **config['subj_wildcards'],
         )
-    threads: workflow.cores,
+    threads: 8
     group: "subj2"
     container:
         config['singularity']['mrtrix']
@@ -293,27 +283,29 @@ rule tck2connectome:
     input:
         tckweights=rules.tcksift2.output.tckweights,
         tck=rules.tckgen.output.tck,
-    params:
-        parcellation=config['mrtproc']['parcellation']
+        parcellation=bids(
+                root=mrt_root,datatype='dwi',atlas='{atlas}',suffix='dseg.nii.gz',
+                **config['subj_wildcards'])
     output:
         sl_assignment=bids(
                 root=root,
                 datatype='tractography',
+                atlas='{atlas}',
                 suffix='slAssignment.txt',
             **config['subj_wildcards'],
         ),
         conn=bids(
             root=root,
             datatype='tractography',
+            atlas='{atlas}',
             suffix='conn.csv',
             **config['subj_wildcards'],
         )
-    threads: workflow.cores
+    threads: 8
     group: "subj2"
     container:
         config['singularity']['mrtrix']
     shell:
-        'tck2connectome -nthreads {threads} -tck_weights_in {input.tckweights} -out_assignments {output.sl_assignment} -zero_diagonal -symmetric {input.tck} {params.parcellation} {output.conn}'
+        'tck2connectome -nthreads {threads} -tck_weights_in {input.tckweights} -out_assignments {output.sl_assignment} -zero_diagonal -symmetric {input.tck} {input.parcellation} {output.conn}'
 
-#----------- MRTRIX TRACTOGRAPHY END ------------#
 

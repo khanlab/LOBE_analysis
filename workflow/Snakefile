@@ -7,5 +7,6 @@ set_bids_spec("v0_0_0")
 configfile: 'config/config.yml'
     
 include: 'rules/zipfiles.smk'
+include: 'rules/atlas.smk'
 include: 'rules/mrtproc.smk'
 include: 'rules/fmri.smk'
