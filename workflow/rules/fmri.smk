@@ -44,6 +44,53 @@ rule reslice_mask:
         'c3d {input.boldmask} {input.t1mask} -interpolation NearestNeighbor  -reslice-identity -o {output}'
 
 
+rule map_bold_to_surface_fsLR:
+    input:
+        bold_preproc = lambda wildcards: config['input_path']['bold_nii'][wildcards.dataset],
+        mid_surf=lambda wildcards: config['input_path']['surf_gii_mni'].format(surf='midthickness',**wildcards),
+        white_surf=lambda wildcards: config['input_path']['surf_gii_mni'].format(surf='white',**wildcards),
+        pial_surf=lambda wildcards: config['input_path']['surf_gii_mni'].format(surf='pial',**wildcards),
+    output:
+        metric=bids(root=root,datatype='func',hemi='{hemi}',desc='preproc',space='{space}',den='32k',task='{task}',suffix='bold.dtseries.func.gii',
+                **config['subj_wildcards'])
+    shell:
+        'wb_command -volume-to-surface-mapping {input.bold_preproc} {input.mid_surf}  {output.metric} -ribbon-constrained {input.white_surf} {input.pial_surf}'
+
+
+rule create_bold_cifti:
+    input:
+        left_metric=bids(root=root,datatype='func',hemi='L',desc='preproc',space='{space}',den='32k',task='{task}',suffix='bold.dtseries.func.gii',
+                **config['subj_wildcards']),
+        right_metric=bids(root=root,datatype='func',hemi='R',desc='preproc',space='{space}',den='32k',task='{task}',suffix='bold.dtseries.func.gii',
+                **config['subj_wildcards']),
+    output:
+        cifti=bids(root=root,datatype='func',desc='preproc',space='{space}',den='32k',task='{task}',suffix='bold.dtseries.nii',
+                **config['subj_wildcards']),
+    shell:
+        'wb_command -cifti-create-dense-timeseries {output.cifti} -left-metric {input.left_metric} -right-metric {input.right_metric} '
+
+
+rule denoise_cifti:
+    input: 
+        cifti=bids(root=root,datatype='func',desc='preproc',space='{space}',den='32k',task='{task}',suffix='bold.dtseries.nii',
+                **config['subj_wildcards']),
+        json = lambda wildcards: config['input_path']['bold_json'][wildcards.dataset],
+        confounds_tsv = lambda wildcards: config['input_path']['bold_confounds'][wildcards.dataset],
+    params:
+        denoise_params = lambda wildcards: config['fmri']['denoise'][wildcards.denoise],
+    output: 
+        cifti=bids(root=root,datatype='func',desc='preproc',space='{space}',den='32k',denoise='{denoise}',suffix='bold.dtseries.nii',
+                **config['subj_wildcards']),
+        json=bids(root=root,datatype='func',desc='preproc',space='{space}',den='32k',denoise='{denoise}',suffix='bold.json',
+                **config['subj_wildcards']),
+    group: 'subj'
+    threads: 8
+    resources:
+        mem_mb='32000'
+    script: '../scripts/denoise_cifti.py'
+
+
+
 rule denoise:
     input: 
         nii = lambda wildcards: config['input_path']['bold_nii'][wildcards.dataset],

@@ -15,14 +15,15 @@ rule map_atlas_to_dwi:
     input:
         vol_ref=config['input_path']['dwi_mask'],
         label='resources/atlas/atlas-{atlas}_hemi-{hemi}_parc.label.gii',
-        mid_surf=lambda wildcards: config['input_path']['surf_gii'].format(surf='midthickness',**wildcards),
-        white_surf=lambda wildcards: config['input_path']['surf_gii'].format(surf='white',**wildcards),
-        pial_surf=lambda wildcards: config['input_path']['surf_gii'].format(surf='pial',**wildcards),
+        mid_surf=lambda wildcards: config['input_path']['surf_gii_t1'].format(surf='midthickness',**wildcards),
+        white_surf=lambda wildcards: config['input_path']['surf_gii_t1'].format(surf='white',**wildcards),
+        pial_surf=lambda wildcards: config['input_path']['surf_gii_t1'].format(surf='pial',**wildcards),
     output:
         vol=bids(root=mrt_root,datatype='dwi',hemi='{hemi}',atlas='{atlas}',suffix='dseg.nii.gz',
                 **config['subj_wildcards'])
     shell:
         'wb_command -label-to-volume-mapping {input.label} {input.mid_surf} {input.vol_ref} {output.vol} -ribbon-constrained {input.white_surf} {input.pial_surf}'
+
 
 rule merge_lr_dseg:
     input:
