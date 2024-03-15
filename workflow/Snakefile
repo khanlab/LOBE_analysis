@@ -1,13 +1,32 @@
 import re
 from snakebids import bids
+import pandas as pd
 
 from snakebids import set_bids_spec
 set_bids_spec("v0_0_0")
 
 configfile: 'config/config.yml'
+
+
+subjects = { dataset:list(pd.read_csv(f'resources/dataset-{dataset}_subjects.tsv',sep='\t',dtype={'participant_label':str}).participant_label) for dataset in config['datasets']}
+   
     
 include: 'rules/zipfiles.smk'
 include: 'rules/atlas.smk'
 include: 'rules/mrtproc.smk'
 include: 'rules/fmri.smk'
 include: 'rules/hippunfold.smk'
+
+
+rule all_lists:
+    input:
+        expand('resources/dataset-{dataset}_subjects.tsv',dataset=config['datasets'])
+    
+rule create_subject_list:
+    input:
+        zipfile=config['in_agg_zip']['snakebatch']
+    output:
+        'resources/dataset-{dataset}_subjects.tsv'
+    shell:
+        "echo participant_label > {output} && unzip -l {input} {wildcards.dataset}/bids/sub-*/*T1w.nii.gz | awk '{{print $4}}' | awk -F '/' '{{print $3}}' | awk -F '-' '{{print $2}}' | tr -s '\n' | tail -n +2 | sort >> {output}"
+ 
