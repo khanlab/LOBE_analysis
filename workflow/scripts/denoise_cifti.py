@@ -55,7 +55,4 @@ cifti_nib_out = nib.Cifti2Image(cleaned_data,header=cifti_nib.header)
 
 cifti_nib_out.to_filename(snakemake.output.cifti)
 
-#pass along the derivatives sidecar, with addition of Description and Sources 
-write_derivative_json(snakemake, Description=f'Denoising using confound grouping {snakemake.wildcards.denoise}')
-
 
