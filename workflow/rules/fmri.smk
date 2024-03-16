@@ -69,7 +69,6 @@ rule create_bold_cifti:
     shell:
         'wb_command -cifti-create-dense-timeseries {output.cifti} -left-metric {input.left_metric} -right-metric {input.right_metric} '
 
-
 rule denoise_cifti:
     input: 
         cifti=bids(root=root,datatype='func',desc='preproc',space='{space}',den='32k',task='{task}',suffix='bold.dtseries.nii',
@@ -79,9 +78,9 @@ rule denoise_cifti:
     params:
         denoise_params = lambda wildcards: config['fmri']['denoise'][wildcards.denoise],
     output: 
-        cifti=bids(root=root,datatype='func',desc='preproc',space='{space}',den='32k',denoise='{denoise}',suffix='bold.dtseries.nii',
+        cifti=bids(root=root,datatype='func',desc='preproc',space='{space}',den='32k',task='{task}',denoise='{denoise}',suffix='bold.dtseries.nii',
                 **config['subj_wildcards']),
-        json=bids(root=root,datatype='func',desc='preproc',space='{space}',den='32k',denoise='{denoise}',suffix='bold.json',
+        json=bids(root=root,datatype='func',desc='preproc',space='{space}',den='32k',task='{task}',denoise='{denoise}',suffix='bold.json',
                 **config['subj_wildcards']),
     group: 'subj'
     threads: 8
