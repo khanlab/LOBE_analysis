@@ -267,7 +267,7 @@ rule tck2connectome:
         tckweights=rules.tcksift2.output.tckweights,
         tck=rules.tckgen.output.tck,
         parcellation=bids(
-            root=mrt_root,
+            root=root,
             datatype="dwi",
             atlas="{atlas}",
             suffix="dseg.nii.gz",
