@@ -1,5 +1,6 @@
 import re
 from snakebids import bids
+from os.path import join
 import pandas as pd
 
 from snakebids import set_bids_spec
@@ -10,12 +11,30 @@ configfile: 'config/config.yml'
 
 subjects = { dataset:list(pd.read_csv(f'resources/dataset-{dataset}_subjects.tsv',sep='\t',dtype={'participant_label':str}).participant_label) for dataset in config['datasets']}
    
-    
+root = os.path.join(config["root"], "{dataset}")
+
+include: 'rules/common.smk'
 include: 'rules/zipfiles.smk'
 include: 'rules/atlas.smk'
-include: 'rules/mrtproc.smk'
-include: 'rules/fmri.smk'
+include: 'rules/dwi.smk'
+include: 'rules/func.smk'
 include: 'rules/hippunfold.smk'
+
+
+rule all:
+    input:
+        get_dwi_targets(),
+        get_func_targets()
+
+
+
+rule all_dwi:
+    input: 
+        get_dwi_targets()
+
+rule all_func:
+    input:
+        get_func_targets()
 
 
 rule all_lists:

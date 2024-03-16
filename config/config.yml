@@ -51,7 +51,7 @@ subjects:
 atlas:
   schaefer: resources/schaefer_2018/Schaefer2018_300Parcels_7Networks_order.dlabel.nii
 
-mrtproc:
+dwi:
   shells: 
     - '0'
     - '1500'
@@ -64,15 +64,12 @@ mrtproc:
 
   sl_count: 10000
 
-  
-
-fmri:
-
-  atlas:
-    - schaefer
+ 
+func:
 
   fwhm:
     - 5
+  
   space:
     - MNI152NLin2009cAsym
 
