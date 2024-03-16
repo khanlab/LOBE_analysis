@@ -25,7 +25,7 @@ rule get_from_zip:
     input:
         zip=get_zip_file,
     output:
-        temp("{app}/{file}"),  # you could add temp() around this to extract on the fly and not store it
+        "{app}/{file}",  # you could add temp() around this to extract on the fly and not store it
     shell:
         "unzip -d {wildcards.app} {input.zip} {wildcards.file}"
 
