@@ -219,7 +219,7 @@ rule struc_conn_csv_to_pconn_cifti:
             root=root,
             datatype="dwi",
             atlas="{atlas}",
-            suffix="conn.csv",
+            suffix="struc.conn.csv",
             **config["subj_wildcards"],
         ),
     output:
