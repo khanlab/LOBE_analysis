@@ -97,32 +97,62 @@ rule parcellate_bold:
         cifti_dtseries=rules.smooth_cifti.output.cifti,
         cifti_dlabel=lambda wildcards: config['atlas'][wildcards.atlas]
     params:
-        stdev_exclude=2 #for outlier exclusion
+        exclude_opt='-exclude-outliers {nstdev} {nstdev}'.format(nstdev=config['fmri']['parcellation']['n_stdevs_exclude']) if config['fmri']['parcellation']['do_exclude_outliers'] else ''
     output:
         cifti_ptseries=bids(root=root,datatype='func',desc='preproc',space='{space}',den='32k',task='{task}',denoise='{denoise}',fwhm='{fwhm}',atlas='{atlas}',suffix='bold.ptseries.nii',
                 **config['subj_wildcards']),
     shell:
         'wb_command -cifti-parcellate {input.cifti_dtseries} {input.cifti_dlabel} '
-        ' COLUMN {output.cifti_ptseries} -exclude-outliers {params.stdev_exclude} {params.stdev_exclude}'
+        ' COLUMN {output.cifti_ptseries} {params.exclude_opt}'
        
 rule correlate_parcels:
     input: 
         cifti=rules.parcellate_bold.output.cifti_ptseries
+    params:
+        fisher_z='-fisher-z' if config['fmri']['correlation']['do_fisher_z'] else ''
     output:
         cifti=bids(root=root,datatype='func',desc='preproc',space='{space}',den='32k',task='{task}',denoise='{denoise}',fwhm='{fwhm}',atlas='{atlas}',suffix='bold.pconn.nii',
                 **config['subj_wildcards']),
     shell:
-        'wb_command -cifti-correlation {input.cifti} {output.cifti} -fisher-z ' 
+        'wb_command -cifti-correlation {input.cifti} {output.cifti} {params.fisher_z} ' 
 
+
+rule plot_pconn_png:
+    """generic rule for plotting pconn cifti files"""
+    input:
+        cifti_pconn='{prefix}.pconn.nii'
+    output:
+        png='{prefix}.pconn.png'
+    script:
+        '../scripts/plot_pconn_png.py'
 
  
-rule schaefer_network:
-    """ Uses the Schaefer connectivity and 7-network labels to construct 14x14 network connectivity matrices, by averaging values across the network parcels """
+rule struc_conn_csv_to_pconn_cifti:
     input:
-        conn_txt = bids(root=root,subject='{subject}',task='{task}',denoise='{denoise}',space='{space}',fwhm='{fwhm}',atlas='{atlas}',suffix='conn.txt'),
-        network_txt = 'resources/schaefer_2018/Schaefer2018_300Parcels_7Networks_order.txt' #this should be downloaded when the prev rule is first run
-    group: 'subj'
+        #for reference pconn, pick the first task, denoise, fwhm values from config (any would do)
+        ref_cifti_pconn=bids(root=root,datatype='func',desc='preproc',space='{space}',den='32k',task=config['fmri']['task'][0],denoise=next(iter(config['fmri']['denoise'])),fwhm=config['fmri']['fwhm'][0],atlas='{atlas}',suffix='bold.pconn.nii',
+                **config['subj_wildcards']),
+        conn_csv=bids(
+            root=mrt_root,
+            datatype='tractography',
+            atlas='{atlas}',
+            suffix='conn.csv',
+            **config['subj_wildcards'],
+        )
     output:
-        txt = bids(root=root,subject='{subject}',task='{task}',denoise='{denoise}',space='{space}',fwhm='{fwhm}',atlas='{atlas,schaefer}',network='Yeo7',suffix='conn.txt'),
-        png = bids(root=root,subject='{subject}',task='{task}',denoise='{denoise}',space='{space}',fwhm='{fwhm}',atlas='{atlas,schaefer}',network='Yeo7',suffix='conn.png'),
-    script: '../scripts/network_matrix.py'
+        cifti_pconn=bids(
+            root=mrt_root,
+            datatype='tractography',
+            space='{space}',
+            den='32k',
+            atlas='{atlas}',
+            suffix='struc.pconn.nii',
+            **config['subj_wildcards'],
+        )
+    script:
+        '../scripts/struc_conn_csv_to_pconn_cifti.py'
+
+
+
+    
+

@@ -64,6 +64,7 @@ mrtproc:
 
   sl_count: 10000
 
+  
 
 fmri:
 
@@ -78,6 +79,12 @@ fmri:
   task:
     - rest
 
+  parcellation:    
+    do_exclude_outliers: False
+    n_stdevs_exclude: 2
+
+  correlation:
+    do_fisher_z: False
   denoise:
     24HMP8PhysSpikeReg:
       clean_img_opts:
