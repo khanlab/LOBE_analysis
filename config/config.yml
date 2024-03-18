@@ -39,7 +39,7 @@ subj_wildcards:
 
 
 datasets:
-  - HCP
+  #  - HCP
   - LOBE
 
 subjects: 
@@ -50,7 +50,7 @@ subjects:
 
 atlas:
   schaefer: resources/schaefer_2018/Schaefer2018_300Parcels_7Networks_order.dlabel.nii
-  mmp: resources/mpm/Q1-Q6_RelatedParcellation210.CorticalAreas_dil_Final_Final_Areas_Group_Colors.32k_fs_LR.dlabel.nii
+  mmp: resources/mmp/Q1-Q6_RelatedParcellation210.CorticalAreas_dil_Final_Final_Areas_Group_Colors.32k_fs_LR.dlabel.nii
   brainnetome: resources/brainnetome/fsaverage.BN_Atlas.32k_fs_LR_updated.dlabel.nii
 dwi:
   shells: 
