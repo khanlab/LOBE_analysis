@@ -234,3 +234,54 @@ rule struc_conn_csv_to_pconn_cifti:
         ),
     script:
         "../scripts/struc_conn_csv_to_pconn_cifti.py"
+
+rule calc_degree:
+    input: 
+        pconn='{prefix}_{suffix}.pconn.nii'
+    output: 
+        pscalar='{prefix}_{suffix}degree.pscalar.nii'
+    shell:
+        'wb_command -cifti-reduce {input} SUM {output}'
+
+rule calc_sfc:
+    input:
+        pconn_struc=bids(
+            root=root,
+            datatype="dwi",
+            space="{space}",
+            den="32k",
+            atlas="{atlas}",
+            suffix="struc.pconn.nii",
+            **config["subj_wildcards"],
+        ),
+        pconn_func=bids(
+            root=root,
+            datatype="func",
+            desc="preproc",
+            space="{space}",
+            den="32k",
+            task="{task}",
+            denoise="{denoise}",
+            fwhm="{fwhm}",
+            atlas="{atlas}",
+            suffix="bold.pconn.nii",
+            **config["subj_wildcards"]
+        ),
+    output:
+        pscalar_sfc=bids(
+            root=root,
+            datatype="func",
+            desc="preproc",
+            space="{space}",
+            den="32k",
+            task="{task}",
+            denoise="{denoise}",
+            fwhm="{fwhm}",
+            atlas="{atlas}",
+            suffix="sfc.pscalar.nii",
+            **config["subj_wildcards"]
+        ),
+    script:
+        '../scripts/calc_sfc.py'
+
+
