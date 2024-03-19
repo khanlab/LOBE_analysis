@@ -6,6 +6,8 @@ rule get_surf_label_from_cifti_atlas:
     output:
         label_left="resources/atlas/atlas-{atlas}_hemi-L_parc.label.gii",
         label_right="resources/atlas/atlas-{atlas}_hemi-R_parc.label.gii",
+    container:
+        config["singularity"]["diffparc"]
     shell:
         "wb_command -cifti-separate {input.cifti} COLUMN -label CORTEX_LEFT {output.label_left} -label CORTEX_RIGHT {output.label_right}"
 
@@ -32,6 +34,8 @@ rule map_atlas_to_dwi:
             suffix="dseg.nii.gz",
             **config["subj_wildcards"]
         ),
+    container:
+        config["singularity"]["diffparc"]
     shell:
         "wb_command -label-to-volume-mapping {input.label} {input.mid_surf} {input.vol_ref} {output.vol} -ribbon-constrained {input.white_surf} {input.pial_surf}"
 
@@ -62,6 +66,8 @@ rule merge_lr_dseg:
             suffix="dseg.nii.gz",
             **config["subj_wildcards"]
         ),
+    container:
+        config["singularity"]["diffparc"]
     shell:
         "c3d {input.left} {input.right} -max -o {output.merged}"
 
@@ -71,6 +77,8 @@ rule get_label_txt_from_cifti:
         cifti=lambda wildcards: config["atlas"][wildcards.atlas],
     output:
         label_txt="resources/atlas/atlas-{atlas}_desc-cifti_labels.txt",
+    container:
+        config["singularity"]["diffparc"]
     shell:
         "wb_command -cifti-label-export-table {input} parcels {output}"
 
@@ -105,6 +113,8 @@ rule parcellate_centroids:
         markers_pscalar="resources/atlas/atlas-{atlas}_surf-{surf}_markers.pscalar.nii",
     shadow:
         "minimal"
+    container:
+        config["singularity"]["diffparc"]
     shell:
         "wb_command -surface-coordinates-to-metric {input.surfs[0]} left_coords.shape.gii && "
         "wb_command -surface-coordinates-to-metric {input.surfs[1]} right_coords.shape.gii && "

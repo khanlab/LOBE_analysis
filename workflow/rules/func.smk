@@ -35,6 +35,8 @@ rule map_bold_to_surface_fsLR:
             suffix="bold.dtseries.func.gii",
             **config["subj_wildcards"]
         ),
+    container:
+        config["singularity"]["diffparc"]
     shell:
         "wb_command -volume-to-surface-mapping {input.bold_preproc} {input.mid_surf}  {output.metric} -ribbon-constrained {input.white_surf} {input.pial_surf}"
 
@@ -74,6 +76,8 @@ rule create_bold_cifti:
             suffix="bold.dtseries.nii",
             **config["subj_wildcards"]
         ),
+    container:
+        config["singularity"]["diffparc"]
     shell:
         "wb_command -cifti-create-dense-timeseries {output.cifti} -left-metric {input.left_metric} -right-metric {input.right_metric} "
 
@@ -132,6 +136,8 @@ rule smooth_cifti:
             suffix="bold.dtseries.nii",
             **config["subj_wildcards"]
         ),
+    container:
+        config["singularity"]["diffparc"]
     shell:
         "wb_command -cifti-smoothing {input.cifti} {params.fwhm} {params.fwhm} COLUMN "
         " {output.cifti} -fwhm -left-surface {input.left_surf} -right-surface {input.right_surf}"
@@ -161,6 +167,8 @@ rule parcellate_bold:
             suffix="bold.ptseries.nii",
             **config["subj_wildcards"]
         ),
+    container:
+        config["singularity"]["diffparc"]
     shell:
         "wb_command -cifti-parcellate {input.cifti_dtseries} {input.cifti_dlabel} "
         " COLUMN {output.cifti_ptseries} {params.exclude_opt}"
@@ -185,6 +193,8 @@ rule correlate_parcels:
             suffix="bold.pconn.nii",
             **config["subj_wildcards"]
         ),
+    container:
+        config["singularity"]["diffparc"]
     shell:
         "wb_command -cifti-correlation {input.cifti} {output.cifti} {params.fisher_z} "
 
