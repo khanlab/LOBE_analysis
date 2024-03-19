@@ -5,9 +5,9 @@ from nilearn import plotting
 
 matplotlib.use('Agg')
 
-cifti_nib = nib.load(snakemake.input.cifti_pscalar)
+cifti_nib = nib.load(snakemake.input.cifti_pconn)
 
-sfc = cifti_nib.get_fdata()
+conn_matrix = cifti_nib.get_fdata()
 
 fig = plt.figure(figsize=(4,4))
 
