@@ -235,13 +235,15 @@ rule struc_conn_csv_to_pconn_cifti:
     script:
         "../scripts/struc_conn_csv_to_pconn_cifti.py"
 
+
 rule calc_degree:
-    input: 
-        pconn='{prefix}_{suffix}.pconn.nii'
-    output: 
-        pscalar='{prefix}_{suffix}degree.pscalar.nii'
+    input:
+        pconn="{prefix}_{suffix}.pconn.nii",
+    output:
+        pscalar="{prefix}_{suffix}degree.pscalar.nii",
     shell:
-        'wb_command -cifti-reduce {input} SUM {output}'
+        "wb_command -cifti-reduce {input} SUM {output}"
+
 
 rule calc_sfc:
     input:
@@ -282,6 +284,43 @@ rule calc_sfc:
             **config["subj_wildcards"]
         ),
     script:
-        '../scripts/calc_sfc.py'
+        "../scripts/calc_sfc.py"
 
 
+rule plot_sfc_markers_png:
+    """plot sfc using markers on glass brain"""
+    input:
+        pscalar_sfc=bids(
+            root=root,
+            datatype="func",
+            desc="preproc",
+            space="{space}",
+            den="32k",
+            task="{task}",
+            denoise="{denoise}",
+            fwhm="{fwhm}",
+            atlas="{atlas}",
+            suffix="sfc.pscalar.nii",
+            **config["subj_wildcards"]
+        ),
+        pscalar_markers="resources/atlas/atlas-{atlas}_surf-{surf}_markers.pscalar.nii",
+        surfs=lambda wildcards: expand(
+            config["template_surf"], surf=wildcards.surf, hemi=["L", "R"]
+        ),
+    output:
+        png=bids(
+            root=root,
+            datatype="func",
+            desc="preproc",
+            space="{space}",
+            den="32k",
+            task="{task}",
+            denoise="{denoise}",
+            fwhm="{fwhm}",
+            atlas="{atlas}",
+            surf="{surf}",
+            suffix="sfc.markerplot.png",
+            **config["subj_wildcards"]
+        ),
+    script:
+        "../scripts/plot_sfc_markers_png.py"

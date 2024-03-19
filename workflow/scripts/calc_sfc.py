@@ -24,7 +24,15 @@ sfc = np.zeros((1,N))
 
 #spearman rho over each row:
 for i in range(N):
-    sfc[0,i] = spearmanr(func_conn_matrix[i,:],struc_conn_matrix[i,:]).statistic
+    func_row = func_conn_matrix[i,:]
+    struc_row = struc_conn_matrix[i,:]
+
+    #if all zeros in a row, then we set sfc to zero
+    # since spearmanr will fail
+    if func_row.sum() == 0 or struc_row.sum()==0:
+        sfc[0,i] = 0
+    else:
+        sfc[0,i] = spearmanr(func_row,struc_row).statistic
 
 
 #write out cifti

@@ -5,11 +5,13 @@ from nilearn import plotting
 
 matplotlib.use('Agg')
 
-cifti_nib = nib.load(snakemake.input.cifti_pconn)
+cifti_nib = nib.load(snakemake.input.cifti_pscalar)
 
-conn_matrix = cifti_nib.get_fdata()
+sfc = cifti_nib.get_fdata()
 
 fig = plt.figure(figsize=(4,4))
+
+
 plotting.plot_matrix(conn_matrix, figure=fig ,tri='lower', colorbar=False,
                          vmax=1, vmin=-1)
 
