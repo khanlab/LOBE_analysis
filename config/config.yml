@@ -1,10 +1,11 @@
 
 #files in one big zip file
 in_agg_zip: 
-  snakebatch: '/home/ROBARTS/alik/graham/cfmm-bids/Khan/LOBE/derivatives/snakebatch_LOBE_HCP_2023_09_23.zip'
+  snakebatch:
+    HCP: '/home/ROBARTS/alik/graham/cfmm-bids/Khan/LOBE/derivatives/snakebatch_LOBE_HCP_2023_09_23.zip'
+    LOBE: '/home/ROBARTS/alik/graham/projects/ctb-akhanf-ab/cfmm-bids/Khan/LOBE/derivatives/snakebatch_LOBE_2024_03_19.zip'
 
-in_subj_zip:
-  freesurfer: '/path/to/freesurfer/sub-{subject}_freesurfer.zip'  
+
 
 #to find paths below, use: unzip -l /home/ROBARTS/alik/graham/cfmm-bids/Khan/LOBE/derivatives/snakebatch_LOBE_HCP_2023_09_23.zip | less
 input_path: 
@@ -39,7 +40,7 @@ subj_wildcards:
 
 
 datasets:
-  #  - HCP
+  - HCP
   - LOBE
 
 subjects: 
@@ -65,7 +66,7 @@ dwi:
     - '8'
     - '8'
 
-  sl_count: 10000
+  sl_count: 1000000
 
  
 func:
@@ -110,4 +111,5 @@ func:
 
 singularity:
   mrtrix: 'docker://mrtrix3/mrtrix3:3.0.4'
+  diffparc: 'docker://khanlab/diffparc-deps:v0.1.0-fix'  
 
