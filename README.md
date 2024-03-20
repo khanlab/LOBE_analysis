@@ -39,12 +39,12 @@ pip install .
 
 Use the -l (list) and pipe to less to find the filepaths you want to unzip, e.g.:
 ```
-unzip -l  /home/ROBARTS/alik/graham/LOBE/derivatives/snakebatch_LOBE_2024_03_19.zip  | less
+unzip -l  /home/ROBARTS/alik/graham/project/ctb-akhanf-ab/cfmm-bids/Khan/LOBE/derivatives/snakebatch_LOBE_2024_03_19.zip  | less
 ```
 
 
 Then, on /localscratch run:
 ```
-unzip   /home/ROBARTS/alik/graham/LOBE/derivatives/snakebatch_LOBE_2024_03_19.zip  "LOBE/derivatives/fmriprep_23.1.0/sub-*.html" "LOBE/derivatives/fmriprep_23.1.0/sub-*/figures/*"
+unzip   /home/ROBARTS/alik/graham/project/ctb-akhanf-ab/cfmm-bids/Khan/LOBE/derivatives/snakebatch_LOBE_2024_03_19.zip  "LOBE/derivatives/fmriprep_23.1.0/sub-*.html" "LOBE/derivatives/fmriprep_23.1.0/sub-*/figures/*"
 ```
 
