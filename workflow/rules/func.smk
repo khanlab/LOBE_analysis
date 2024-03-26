@@ -4,7 +4,6 @@ wildcard_constraints:
     subject="[a-zA-Z0-9]+",
     task="[a-zA-Z0-9]+",
     denoise="[a-zA-Z0-9]+",
-    space="[a-zA-Z0-9]+",
     atlas="[a-zA-Z0-9]+",
     fwhm="[a-zA-Z0-9]+",
 
@@ -14,13 +13,13 @@ rule map_bold_to_surface_fsLR:
         bold_preproc=lambda wildcards: config["input_path"]["bold_nii"][
             wildcards.dataset
         ],
-        mid_surf=lambda wildcards: config["input_path"]["surf_gii_mni"].format(
+        mid_surf=lambda wildcards: config["input_path"]["surf_gii_t1"].format(
             surf="midthickness", **wildcards
         ),
-        white_surf=lambda wildcards: config["input_path"]["surf_gii_mni"].format(
+        white_surf=lambda wildcards: config["input_path"]["surf_gii_t1"].format(
             surf="white", **wildcards
         ),
-        pial_surf=lambda wildcards: config["input_path"]["surf_gii_mni"].format(
+        pial_surf=lambda wildcards: config["input_path"]["surf_gii_t1"].format(
             surf="pial", **wildcards
         ),
     output:
@@ -29,7 +28,6 @@ rule map_bold_to_surface_fsLR:
             datatype="func",
             hemi="{hemi}",
             desc="preproc",
-            space="{space}",
             den="32k",
             task="{task}",
             suffix="bold.dtseries.func.gii",
@@ -48,7 +46,6 @@ rule create_bold_cifti:
             datatype="func",
             hemi="L",
             desc="preproc",
-            space="{space}",
             den="32k",
             task="{task}",
             suffix="bold.dtseries.func.gii",
@@ -59,7 +56,6 @@ rule create_bold_cifti:
             datatype="func",
             hemi="R",
             desc="preproc",
-            space="{space}",
             den="32k",
             task="{task}",
             suffix="bold.dtseries.func.gii",
@@ -70,7 +66,6 @@ rule create_bold_cifti:
             root=root,
             datatype="func",
             desc="preproc",
-            space="{space}",
             den="32k",
             task="{task}",
             suffix="bold.dtseries.nii",
@@ -96,7 +91,6 @@ rule denoise_cifti:
             root=root,
             datatype="func",
             desc="preproc",
-            space="{space}",
             den="32k",
             task="{task}",
             denoise="{denoise}",
@@ -128,7 +122,6 @@ rule smooth_cifti:
             root=root,
             datatype="func",
             desc="preproc",
-            space="{space}",
             den="32k",
             task="{task}",
             denoise="{denoise}",
@@ -158,7 +151,6 @@ rule parcellate_bold:
             root=root,
             datatype="func",
             desc="preproc",
-            space="{space}",
             den="32k",
             task="{task}",
             denoise="{denoise}",
@@ -184,7 +176,6 @@ rule correlate_parcels:
             root=root,
             datatype="func",
             desc="preproc",
-            space="{space}",
             den="32k",
             task="{task}",
             denoise="{denoise}",
@@ -216,7 +207,6 @@ rule struc_conn_csv_to_pconn_cifti:
             root=root,
             datatype="func",
             desc="preproc",
-            space="{space}",
             den="32k",
             task=config["func"]["task"][0],
             denoise=next(iter(config["func"]["denoise"])),
@@ -236,7 +226,6 @@ rule struc_conn_csv_to_pconn_cifti:
         cifti_pconn=bids(
             root=root,
             datatype="dwi",
-            space="{space}",
             den="32k",
             atlas="{atlas}",
             suffix="struc.pconn.nii",
@@ -260,7 +249,6 @@ rule calc_sfc:
         pconn_struc=bids(
             root=root,
             datatype="dwi",
-            space="{space}",
             den="32k",
             atlas="{atlas}",
             suffix="struc.pconn.nii",
@@ -270,7 +258,6 @@ rule calc_sfc:
             root=root,
             datatype="func",
             desc="preproc",
-            space="{space}",
             den="32k",
             task="{task}",
             denoise="{denoise}",
@@ -284,7 +271,6 @@ rule calc_sfc:
             root=root,
             datatype="func",
             desc="preproc",
-            space="{space}",
             den="32k",
             task="{task}",
             denoise="{denoise}",
@@ -304,7 +290,6 @@ rule plot_sfc_markers_png:
             root=root,
             datatype="func",
             desc="preproc",
-            space="{space}",
             den="32k",
             task="{task}",
             denoise="{denoise}",
@@ -322,7 +307,6 @@ rule plot_sfc_markers_png:
             root=root,
             datatype="func",
             desc="preproc",
-            space="{space}",
             den="32k",
             task="{task}",
             denoise="{denoise}",
