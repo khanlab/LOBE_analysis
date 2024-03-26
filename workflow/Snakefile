@@ -37,7 +37,7 @@ rule all:
     input:
         get_dwi_targets(),
         get_func_targets(),
-
+        get_sfc_targets(),
 
 rule all_dwi:
     input:
@@ -47,6 +47,11 @@ rule all_dwi:
 rule all_func:
     input:
         get_func_targets(),
+
+
+rule all_sfc:
+    input:
+        get_sfc_targets(),
 
 
 rule all_lists:

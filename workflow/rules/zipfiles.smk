@@ -1,20 +1,15 @@
 wildcard_constraints:
     subject="[a-zA-Z0-9]+",
-    app="snakebatch|freesurfer",
+    app="|".join(config['in_agg_zip'].keys()),
+    dataset="[a-zA-Z0-9]+"
 
 
 def get_zip_file(wildcards):
-    # first check if this app is in the in_subj_zip list
-    if wildcards.app in config["in_subj_zip"]:
-        subject = re.match("sub-([a-zA-Z0-9]+)", wildcards.file)[
-            1
-        ]  # parse subject id from the file
-        return config["in_subj_zip"][wildcards.app].format(subject=subject)
-    elif wildcards.app in config["in_agg_zip"]:
-        return config["in_agg_zip"][wildcards.app]
+    if wildcards.app in config["in_agg_zip"]:
+        return config["in_agg_zip"][wildcards.app][wildcards.dataset]
     else:
         print(
-            f"ERROR: cannot find zip file for {wildcards.app} in config in_agg_zip or in_subj_zip"
+            f"ERROR: cannot find zip file for {wildcards.app}/{wildcards.dataset} in config['in_agg_zip']"
         )
         return None
 
@@ -25,9 +20,9 @@ rule get_from_zip:
     input:
         zip=get_zip_file,
     output:
-        "{app}/{file}",  # you could add temp() around this to extract on the fly and not store it
+        "{app}/{dataset}/{file}",  # you could add temp() around this to extract on the fly and not store it
     shell:
-        "unzip -d {wildcards.app} {input.zip} {wildcards.file}"
+        "unzip -d {wildcards.app} {input.zip} {wildcards.dataset}/{wildcards.file}"
 
 
 rule process_file:

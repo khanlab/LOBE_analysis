@@ -1,35 +1,37 @@
 
 #files in one big zip file
 in_agg_zip: 
-  snakebatch: '/home/ROBARTS/alik/graham/cfmm-bids/Khan/LOBE/derivatives/snakebatch_LOBE_HCP_2023_09_23.zip'
+  snakebatch_dwi:
+    HCP: '/home/ROBARTS/alik/graham/cfmm-bids/Khan/LOBE/derivatives/snakebatch_LOBE_HCP_2023_09_23.zip'
+    LOBE: '/home/ROBARTS/alik/graham/projects/ctb-akhanf-ab/cfmm-bids/Khan/LOBE/derivatives/snakebatch_LOBE_2024_03_19.zip'
+  snakebatch:
+    HCP: '/home/ROBARTS/alik/graham/projects/ctb-akhanf-ab/cfmm-bids/Khan/LOBE/derivatives/snakebatch_HCP_snakeanat_fmriprep_2024_03_21.zip'
+    LOBE: '/home/ROBARTS/alik/graham/projects/ctb-akhanf-ab/cfmm-bids/Khan/LOBE/derivatives/snakebatch_LOBE_2024_03_19.zip'
 
-in_subj_zip:
-  freesurfer: '/path/to/freesurfer/sub-{subject}_freesurfer.zip'  
+  
 
 #to find paths below, use: unzip -l /home/ROBARTS/alik/graham/cfmm-bids/Khan/LOBE/derivatives/snakebatch_LOBE_HCP_2023_09_23.zip | less
 input_path: 
-  dwi_nii: 'snakebatch/{dataset}/derivatives/snakedwi/snakedwi/sub-{subject}/dwi/sub-{subject}_space-T1w_res-orig_desc-eddy_dwi.nii.gz'
-  dwi_mask: 'snakebatch/{dataset}/derivatives/snakedwi/snakedwi/sub-{subject}/dwi/sub-{subject}_space-T1w_res-orig_desc-brain_mask.nii.gz'
+  dwi_nii: 'snakebatch_dwi/{dataset}/derivatives/snakedwi/snakedwi/sub-{subject}/dwi/sub-{subject}_space-T1w_res-orig_desc-eddy_dwi.nii.gz'
+  dwi_mask: 'snakebatch_dwi/{dataset}/derivatives/snakedwi/snakedwi/sub-{subject}/dwi/sub-{subject}_space-T1w_res-orig_desc-brain_mask.nii.gz'
   bold_nii:     
-    HCP: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/func/sub-{subject}_task-rest_acq-AP_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz'
-    LOBE: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/func/sub-{subject}_task-rest_acq-AP_run-1_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz'
+    HCP: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/func/sub-{subject}_task-rest_acq-AP_space-T1w_desc-preproc_bold.nii.gz'
+    LOBE: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/func/sub-{subject}_task-rest_acq-AP_run-1_space-T1w_desc-preproc_bold.nii.gz'
   bold_json: 
-    HCP: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/func/sub-{subject}_task-rest_acq-AP_space-MNI152NLin2009cAsym_desc-preproc_bold.json'
-    LOBE: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/func/sub-{subject}_task-rest_acq-AP_run-1_space-MNI152NLin2009cAsym_desc-preproc_bold.json'
+    HCP: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/func/sub-{subject}_task-rest_acq-AP_space-T1w_desc-preproc_bold.json'
+    LOBE: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/func/sub-{subject}_task-rest_acq-AP_run-1_space-T1w_desc-preproc_bold.json'
   bold_confounds: 
     HCP: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/func/sub-{subject}_task-rest_acq-AP_desc-confounds_timeseries.tsv'
     LOBE: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/func/sub-{subject}_task-rest_acq-AP_run-1_desc-confounds_timeseries.tsv'
   bold_mask: 
-    HCP: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/func/sub-{subject}_task-rest_acq-AP_space-MNI152NLin2009cAsym_desc-brain_mask.nii.gz'
-    LOBE: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/func/sub-{subject}_task-rest_acq-AP_run-1_space-MNI152NLin2009cAsym_desc-brain_mask.nii.gz'
+    HCP: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/func/sub-{subject}_task-rest_acq-AP_space-T1w_desc-brain_mask.nii.gz'
+    LOBE: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/func/sub-{subject}_task-rest_acq-AP_run-1_space-T1w_desc-brain_mask.nii.gz'
   t1_mask:
     HCP: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/anat/sub-{subject}_desc-brain_mask.nii.gz'
     LOBE: 'snakebatch/{dataset}/derivatives/fmriprep/sub-{subject}/anat/sub-{subject}_acq-MPRvNavAvgEcho12_run-1_desc-brain_mask.nii.gz'
   surf_gii_t1: 'snakebatch/{dataset}/derivatives/snakeanat/sourcedata/ciftify/sub-{subject}/T1w/fsaverage_LR32k/sub-{subject}.{hemi}.{surf}.32k_fs_LR.surf.gii'
   surf_gii_mni: 'snakebatch/{dataset}/derivatives/snakeanat/sourcedata/ciftify/sub-{subject}/MNINonLinear/fsaverage_LR32k/sub-{subject}.{hemi}.{surf}.32k_fs_LR.surf.gii'
   hippunfold_vol_tsv: 'snakebatch/{dataset}/derivatives/hippunfold/hippunfold/sub-{subject}/anat/sub-{subject}_space-cropT1w_desc-subfields_atlas-bigbrain_volumes.tsv'
-
-  #NOTE: the MNINonLinear space for cifti files is MNI152NLin6Asym, whereas the fmriprep preproc bold is in MNI152NLin2009cAsym -- should include the MNI152NLin6Asym space when running fmriprep next time (as well as T1w)
 
 
 root: results
@@ -39,7 +41,7 @@ subj_wildcards:
 
 
 datasets:
-  #  - HCP
+  - HCP
   - LOBE
 
 subjects: 
@@ -73,8 +75,6 @@ func:
   fwhm:
     - 5
   
-  space:
-    - MNI152NLin2009cAsym
 
   task:
     - rest
@@ -110,4 +110,5 @@ func:
 
 singularity:
   mrtrix: 'docker://mrtrix3/mrtrix3:3.0.4'
+  diffparc: 'docker://khanlab/diffparc-deps:v0.1.0-fix'  
 
