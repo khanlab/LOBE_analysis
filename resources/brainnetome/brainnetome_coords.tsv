@@ -1,0 +1,247 @@
+index	full_name	x	y	z
+1	A8m, medial area 8	-5	15	54
+2	A8m, medial area 8	7	16	54
+3	A8dl, dorsolateral area 8	-18	24	53
+4	A8dl, dorsolateral area 8	22	26	51
+5	A9l, lateral area 9	-11	49	40
+6	A9l, lateral area 9	13	48	40
+7	A6dl, dorsolateral area 6	-18	-1	65
+8	A6dl, dorsolateral area 6	20	4	64
+9	A6m, medial area 6	-6	-5	58
+10	A6m, medial area 6	7	-4	60
+11	A9m,medial area 9	-5	36	38
+12	A9m,medial area 9	6	38	35
+13	A10m, medial area 10	-8	56	15
+14	A10m, medial area 10	8	58	13
+15	A9/46d, dorsal area 9/46	-27	43	31
+16	A9/46d, dorsal area 9/46	30	37	36
+17	IFJ, inferior frontal junction	-42	13	36
+18	IFJ, inferior frontal junction	42	11	39
+19	A46, area 46	-28	56	12
+20	A46, area 46	28	55	17
+21	A9/46v, ventral area 9/46 	-41	41	16
+22	A9/46v, ventral area 9/46 	42	44	14
+23	A8vl, ventrolateral area 8	-33	23	45
+24	A8vl, ventrolateral area 8	42	27	39
+25	A6vl, ventrolateral area 6	-32	4	55
+26	A6vl, ventrolateral area 6	34	8	54
+27	A10l, lateral area10	-26	60	-6
+28	A10l, lateral area10	25	61	-4
+29	A44d,dorsal area 44	-46	13	24
+30	A44d,dorsal area 44	45	16	25
+31	IFS, inferior frontal sulcus	-47	32	14
+32	IFS, inferior frontal sulcus	48	35	13
+33	A45c, caudal area 45	-53	23	11
+34	A45c, caudal area 45	54	24	12
+35	A45r, rostral area 45	-49	36	-3
+36	A45r, rostral area 45	51	36	-1
+37	A44op, opercular area 44	-39	23	4
+38	A44op, opercular area 44	42	22	3
+39	A44v, ventral area 44	-52	13	6
+40	A44v, ventral area 44	54	14	11
+41	A14m, medial area 14	-7	54	-7
+42	A14m, medial area 14	6	47	-7
+43	A12/47o, orbital area 12/47	-36	33	-16
+44	A12/47o, orbital area 12/47	40	39	-14
+45	A11l, lateral area 11	-23	38	-18
+46	A11l, lateral area 11	23	36	-18
+47	A11m, medial area 11	-6	52	-19
+48	A11m, medial area 11	6	57	-16
+49	A13, area 13	-10	18	-19
+50	A13, area 13	9	20	-19
+51	A12/47l, lateral area 12/47	-41	32	-9
+52	A12/47l, lateral area 12/47	42	31	-9
+53	A4hf, area 4(head and face region)	-49	-8	39
+54	A4hf, area 4(head and face region)	55	-2	33
+55	A6cdl, caudal dorsolateral area 6	-32	-9	58
+56	A6cdl, caudal dorsolateral area 6	33	-7	57
+57	A4ul, area 4(upper limb region)	-26	-25	63
+58	A4ul, area 4(upper limb region)	34	-19	59
+59	A4t, area 4(trunk region)	-13	-20	73
+60	A4t, area 4(trunk region)	15	-22	71
+61	A4tl, area 4(tongue and larynx region)	-52	0	8
+62	A4tl, area 4(tongue and larynx region)	54	4	9
+63	A6cvl, caudal ventrolateral area 6	-49	5	30
+64	A6cvl, caudal ventrolateral area 6	51	7	30
+65	A1/2/3ll, area1/2/3 (lower limb region)	-8	-38	58
+66	A1/2/3ll, area1/2/3 (lower limb region)	10	-34	54
+67	A4ll, area 4, (lower limb region)	-4	-23	61
+68	A4ll, area 4, (lower limb region)	5	-21	61
+69	A38m, medial area 38	-32	14	-34
+70	A38m, medial area 38	31	15	-34
+71	A41/42, area 41/42	-54	-32	12
+72	A41/42, area 41/42	54	-24	11
+73	TE1.0 and TE1.2	-50	-11	1
+74	TE1.0 and TE1.2	51	-4	-1
+75	A22c, caudal area 22	-62	-33	7
+76	A22c, caudal area 22	66	-20	6
+77	A38l, lateral area 38	-45	11	-20
+78	A38l, lateral area 38	47	12	-20
+79	A22r, rostral area 22	-55	-3	-10
+80	A22r, rostral area 22	56	-12	-5
+81	A21c, caudal area 21	-65	-30	-12
+82	A21c, caudal area 21	65	-29	-13
+83	A21r, rostral area 21	-53	2	-30
+84	A21r, rostral area 21	51	6	-32
+85	A37dl, dorsolateral area37	-59	-58	4
+86	A37dl, dorsolateral area37	60	-53	3
+87	aSTS, anterior superior temporal sulcus	-58	-20	-9
+88	aSTS, anterior superior temporal sulcus	58	-16	-10
+89	A20iv, intermediate ventral area 20	-45	-26	-27
+90	A20iv, intermediate ventral area 20	46	-14	-33
+91	A37elv, extreme lateroventral area37	-51	-57	-15
+92	A37elv, extreme lateroventral area37	53	-52	-18
+93	A20r, rostral area 20	-43	-2	-41
+94	A20r, rostral area 20	40	0	-43
+95	A20il, intermediate lateral area 20	-56	-16	-28
+96	A20il, intermediate lateral area 20	55	-11	-32
+97	A37vl, ventrolateral area 37	-55	-60	-6
+98	A37vl, ventrolateral area 37	54	-57	-8
+99	A20cl, caudolateral of area 20	-59	-42	-16
+100	A20cl, caudolateral of area 20	61	-40	-17
+101	A20cv, caudoventral of area 20	-55	-31	-27
+102	A20cv, caudoventral of area 20	54	-31	-26
+103	A20rv, rostroventral area 20	-33	-16	-32
+104	A20rv, rostroventral area 20	33	-15	-34
+105	A37mv, medioventral area37	-31	-64	-14
+106	A37mv, medioventral area37	31	-62	-14
+107	A37lv, lateroventral area37	-42	-51	-17
+108	A37lv, lateroventral area37	43	-49	-19
+109	A35/36r, rostral area 35/36	-27	-7	-34
+110	A35/36r, rostral area 35/36	28	-8	-33
+111	A35/36c, caudal area 35/36	-25	-25	-26
+112	A35/36c, caudal area 35/36	26	-23	-27
+113	TL, area TL (lateral PPHC, posterior parahippocampal gyrus)	-28	-32	-18
+114	TL, area TL (lateral PPHC, posterior parahippocampal gyrus)	30	-30	-18
+115	A28/34, area 28/34 (EC, entorhinal cortex)	-19	-12	-30
+116	A28/34, area 28/34 (EC, entorhinal cortex)	19	-10	-30
+117	TI, area TI(temporal agranular insular cortex)	-23	2	-32
+118	TI, area TI(temporal agranular insular cortex)	22	1	-36
+119	TH, area TH (medial PPHC)	-17	-39	-10
+120	TH, area TH (medial PPHC)	19	-36	-11
+121	rpSTS, rostroposterior superior temporal sulcus	-54	-40	4
+122	rpSTS, rostroposterior superior temporal sulcus	53	-37	3
+123	cpSTS, caudoposterior superior temporal sulcus	-52	-50	11
+124	cpSTS, caudoposterior superior temporal sulcus	57	-40	12
+125	A7r, rostral area 7	-16	-60	63
+126	A7r, rostral area 7	19	-57	65
+127	A7c, caudal area 7	-15	-71	52
+128	A7c, caudal area 7	19	-69	54
+129	A5l, lateral area 5	-33	-47	50
+130	A5l, lateral area 5	35	-42	54
+131	A7pc, postcentral area 7	-22	-47	65
+132	A7pc, postcentral area 7	23	-43	67
+133	A7ip, intraparietal area 7(hIP3)	-27	-59	54
+134	A7ip, intraparietal area 7(hIP3)	31	-54	53
+135	A39c, caudal area 39(PGp)	-34	-80	29
+136	A39c, caudal area 39(PGp)	45	-71	20
+137	A39rd, rostrodorsal area 39(Hip3)	-38	-61	46
+138	A39rd, rostrodorsal area 39(Hip3)	39	-65	44
+139	A40rd, rostrodorsal area 40(PFt)	-51	-33	42
+140	A40rd, rostrodorsal area 40(PFt)	47	-35	45
+141	A40c, caudal area 40(PFm)	-56	-49	38
+142	A40c, caudal area 40(PFm)	57	-44	38
+143	A39rv, rostroventral area 39(PGa)	-47	-65	26
+144	A39rv, rostroventral area 39(PGa)	53	-54	25
+145	A40rv, rostroventral area 40(PFop)	-53	-31	23
+146	A40rv, rostroventral area 40(PFop)	55	-26	26
+147	A7m, medial area 7(PEp)	-5	-63	51
+148	A7m, medial area 7(PEp)	6	-65	51
+149	A5m, medial area 5(PEm)	-8	-47	57
+150	A5m, medial area 5(PEm)	7	-47	58
+151	dmPOS, dorsomedial parietooccipital  sulcus(PEr) 	-12	-67	25
+152	dmPOS, dorsomedial parietooccipital  sulcus(PEr) 	16	-64	25
+153	A31, area 31 (Lc1)	-6	-55	34
+154	A31, area 31 (Lc1)	6	-54	35
+155	A1/2/3ulhf, area 1/2/3(upper limb, head and face region)	-50	-16	43
+156	A1/2/3ulhf, area 1/2/3(upper limb, head and face region)	50	-14	44
+157	A1/2/3tonIa, area 1/2/3(tongue and larynx region)	-56	-14	16
+158	A1/2/3tonIa, area 1/2/3(tongue and larynx region)	56	-10	15
+159	A2, area 2	-46	-30	50
+160	A2, area 2	48	-24	48
+161	A1/2/3tru, area1/2/3(trunk region)	-21	-35	68
+162	A1/2/3tru, area1/2/3(trunk region)	20	-33	69
+163	G, hypergranular insula	-36	-20	10
+164	G, hypergranular insula	37	-18	8
+165	vIa, ventral agranular insula	-32	14	-13
+166	vIa, ventral agranular insula	33	14	-13
+167	dIa, dorsal agranular insula	-34	18	1
+168	dIa, dorsal agranular insula	36	18	1
+169	vId/vIg, ventral dysgranular and granular insula	-38	-4	-9
+170	vId/vIg, ventral dysgranular and granular insula	39	-2	-9
+171	dIg, dorsal granular insula	-38	-8	8
+172	dIg, dorsal granular insula	39	-7	8
+173	dId, dorsal dysgranular insula	-38	5	5
+174	dId, dorsal dysgranular insula	38	5	5
+175	A23d, dorsal area 23	-4	-39	31
+176	A23d, dorsal area 23	4	-37	32
+177	A24rv, rostroventral area 24	-3	8	25
+178	A24rv, rostroventral area 24	5	22	12
+179	A32p, pregenual area 32	-6	34	21
+180	A32p, pregenual area 32	5	28	27
+181	A23v, ventral area 23	-8	-47	10
+182	A23v, ventral area 23	9	-44	11
+183	A24cd, caudodorsal area 24	-5	7	37
+184	A24cd, caudodorsal area 24	4	6	38
+185	A23c, caudal area 23	-7	-23	41
+186	A23c, caudal area 23	6	-20	40
+187	A32sg, subgenual area 32	-4	39	-2
+188	A32sg, subgenual area 32	5	41	6
+189	cLinG, caudal lingual gyrus	-11	-82	-11
+190	cLinG, caudal lingual gyrus	10	-85	-9
+191	rCunG, rostral cuneus gyrus	-5	-81	10
+192	rCunG, rostral cuneus gyrus	7	-76	11
+193	cCunG, caudal cuneus gyrus	-6	-94	1
+194	cCunG, caudal cuneus gyrus	8	-90	12
+195	rLinG, rostral lingual gyrus	-17	-60	-6
+196	rLinG, rostral lingual gyrus	18	-60	-7
+197	vmPOS,ventromedial parietooccipital sulcus	-13	-68	12
+198	vmPOS,ventromedial parietooccipital sulcus	15	-63	12
+199	mOccG, middle occipital gyrus	-31	-89	11
+200	mOccG, middle occipital gyrus	34	-86	11
+201	V5/MT+, area V5/MT+	-46	-74	3
+202	V5/MT+, area V5/MT+	48	-70	-1
+203	OPC, occipital polar cortex	-18	-99	2
+204	OPC, occipital polar cortex	22	-97	4
+205	iOccG, inferior occipital gyrus	-30	-88	-12
+206	iOccG, inferior occipital gyrus	32	-85	-12
+207	msOccG, medial superior occipital gyrus	-11	-88	31
+208	msOccG, medial superior occipital gyrus	16	-85	34
+209	lsOccG, lateral superior occipital gyrus	-22	-77	36
+210	lsOccG, lateral superior occipital gyrus	29	-75	36
+211	mAmyg, medial amygdala	-19	-2	-20
+212	mAmyg, medial amygdala	19	-2	-19
+213	lAmyg, lateral amygdala	-27	-4	-20
+214	lAmyg, lateral amygdala	28	-3	-20
+215	rHipp, rostral hippocampus	-22	-14	-19
+216	rHipp, rostral hippocampus	22	-12	-20
+217	cHipp, caudal hippocampus	-28	-30	-10
+218	cHipp, caudal hippocampus	29	-27	-10
+219	vCa, ventral caudate	-12	14	0
+220	vCa, ventral caudate	15	14	-2
+221	GP, globus pallidus	-22	-2	4
+222	GP, globus pallidus	22	-2	3
+223	NAC, nucleus accumbens	-17	3	-9
+224	NAC, nucleus accumbens	15	8	-9
+225	vmPu, ventromedial putamen	-23	7	-4
+226	vmPu, ventromedial putamen	22	8	-1
+227	dCa, dorsal caudate	-14	2	16
+228	dCa, dorsal caudate	14	5	14
+229	dlPu, dorsolateral putamen	-28	-5	2
+230	dlPu, dorsolateral putamen	29	-3	1
+231	mPFtha, medial pre-frontal thalamus	-7	-12	5
+232	mPFtha, medial pre-frontal thalamus	7	-11	6
+233	mPMtha, pre-motor thalamus	-18	-13	3
+234	mPMtha, pre-motor thalamus	12	-14	1
+235	Stha, sensory thalamus	-18	-23	4
+236	Stha, sensory thalamus	18	-22	3
+237	rTtha, rostral temporal thalamus	-7	-14	7
+238	rTtha, rostral temporal thalamus	3	-13	5
+239	PPtha, posterior parietal thalamus	-16	-24	6
+240	PPtha, posterior parietal thalamus	15	-25	6
+241	Otha, occipital thalamus	-15	-28	4
+242	Otha, occipital thalamus	13	-27	8
+243	cTtha, caudal temporal thalamus	-12	-22	13
+244	cTtha, caudal temporal thalamus	10	-14	14
+245	lPFtha, lateral pre-frontal thalamus	-11	-14	2
+246	lPFtha, lateral pre-frontal thalamus	13	-16	7
