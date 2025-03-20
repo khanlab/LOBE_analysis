@@ -4,8 +4,8 @@ rule get_surf_label_from_cifti_atlas:
     input:
         cifti=lambda wildcards: config["atlas"][wildcards.atlas]["dlabel"],
     output:
-        label_left="resources/atlas/atlas-{atlas}_hemi-L_parc.label.gii",
-        label_right="resources/atlas/atlas-{atlas}_hemi-R_parc.label.gii",
+        label_left="resources/atlas/atlas-{atlas}_space-fsLR_hemi-L_parc.label.gii",
+        label_right="resources/atlas/atlas-{atlas}_space-fsLR_hemi-R_parc.label.gii",
     container:
         config["singularity"]["diffparc"]
     group:
@@ -14,11 +14,19 @@ rule get_surf_label_from_cifti_atlas:
         "wb_command -cifti-separate {input.cifti} COLUMN -label CORTEX_LEFT {output.label_left} -label CORTEX_RIGHT {output.label_right}"
 
 
+def get_template_sphere(wildcards):
+    """ for the fmriprep v23 bug, we use the fsaverage template sphere instead """
+    if wildcards.subject in  config['bug_fmriprep_v23']:
+        return config['template_fsavg_surf'].format(surf='sphere',hemi=wildcards.hemi)
+    else:
+        return config['template_surf'].format(surf='sphere',hemi=wildcards.hemi)
+
+
 rule resample_t1_surf_to_fsLR:
     input:
         surf=lambda wildcards: config["input_path"]["t1_surf"][wildcards.dataset].format(**wildcards),
         sphere=lambda wildcards: config["input_path"]["msm_sphere"][wildcards.dataset].format(**wildcards),
-        new_sphere=lambda wildcards: config['template_surf'].format(surf='sphere',hemi=wildcards.hemi)
+        new_sphere=get_template_sphere
     output:
         surf=bids(
             root=root,
@@ -36,10 +44,11 @@ rule resample_t1_surf_to_fsLR:
         "wb_command -surface-resample {input.surf} {input.sphere} {input.new_sphere} BARYCENTRIC {output.surf}"
 
 
+
 rule map_atlas_to_dwi:
     input:
         vol_ref=config["input_path"]["dwi_mask"],
-        label="resources/atlas/atlas-{atlas}_hemi-{hemi}_parc.label.gii",
+        label="resources/atlas/atlas-{atlas}_space-fsLR_hemi-{hemi}_parc.label.gii",
         mid_surf=bids(
             root=root,
             datatype="anat",

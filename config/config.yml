@@ -1,5 +1,5 @@
-
-in_root: '$HOME/graham' #for cbs server
+#in_root: '$HOME' #for narval
+in_root: '$HOME/beluga' #for cbs server
 #in_root: '$HOME' #for graham
 
 groups:
@@ -14,7 +14,7 @@ groups:
   ep_diagnosis_age_below_9: 'age_ep_diagnosis <= 8'
   ep_diagnosis_age_above_8: 'age_ep_diagnosis >8'
   motor_seizures: 'motor_focal_seizures == 1'
-  nonmotor_seizures: 'non_motor_focal_seizures == 1'
+  nonmotor_seizures: 'non-motor_focal_seizures == 1'
   generalized: 'generalized_seizures == 1'
   nongeneralized: 'generalized_seizures == 0'
   FTBTC: 'FTBTC == 1'
@@ -86,6 +86,8 @@ ttests:
   - group1: multifocal
     group2: nonmultifocal
 
+
+
 #lat_pet_left	lat_pet_right	lat_semiology_left	lat_semiology_right	lat_final_left	lat_final_right	lat_final_bilateral	lat_final_multifocal	loc_eeg_frontal	loc_eeg_occipital	loc_eeg_parietal	loc_eeg_temporal	loc_mri_frontal	loc_mri_occipital	loc_mri_parietal	loc_mri_temporal	loc_pet_frontal	loc_pet_occipital	loc_pet_parietal	loc_pet_temporal	loc_semiology	loc_final_frontal	loc_final_occipital	loc_final_parietal	loc_final_temporal	loc_final_temporal_plus	loc_final_extratemporal
 
 
@@ -93,17 +95,17 @@ ttests:
 #files in one big zip file - these paths are relative to in_root defined above
 in_agg_zip: 
   snakebatch_dwi:
-    HCP: 'projects/ctb-akhanf/cfmm-bids/Khan/LOBE/derivatives/snakebatch_LOBE_HCP_2023_09_23.zip'
-    LOBE: 'projects/ctb-akhanf-ab/cfmm-bids/Khan/LOBE/derivatives/snakebatch_LOBE_2024_03_19.zip'
+    HCP: 'scratch/LOBE/derivatives/snakebatch_LOBE_HCP_2023_09_23.zip'
+    LOBE: 'scratch/derivatives/snakebatch_LOBE_2024_03_19.zip'
   snakebatch:
-    HCP: 'projects/ctb-akhanf-ab/cfmm-bids/Khan/LOBE/derivatives/snakebatch_HCP_snakeanat_fmriprep_2024_03_21.zip'
-    LOBE: 'projects/ctb-akhanf-ab/cfmm-bids/Khan/LOBE/derivatives/snakebatch_LOBE_2024_03_19.zip'
+    HCP: 'scratch/derivatives/snakebatch_HCP_snakeanat_fmriprep_2024_03_21.zip'
+    LOBE: 'scratch/derivatives/snakebatch_LOBE_2024_03_19.zip'
 
 in_tabular:
   HCP: 'projects/ctb-akhanf/ext-data/hcp_development/HCPDevImagingManifestBeh/ndar_subject01.txt'
-  LOBE: 'projects/ctb-akhanf-ab/cfmm-bids/Khan/LOBE/raw/baseline/clinical/participants.tsv' #<-- have this point to most up-to-date clinical data
+  LOBE: 'scratch/raw/baseline/clinical/participants.tsv' #<-- have this point to most up-to-date clinical data
 
-  
+  #LOBE: '/lustre04/scratch/mtayl84/raw/baseline/clinical/participants.tsv' #<-- have this point to most up-to-date clinical data
 
 #to find paths below, use: unzip -l cfmm-bids/Khan/LOBE/derivatives/snakebatch_LOBE_HCP_2023_09_23.zip | less
 input_path: 
@@ -162,20 +164,26 @@ datasets:
   - HCP
   - LOBE
 
-use_test_subjects: False
+use_test_subjects: True
 
 test_subjects: 
   HCP: 
-   - 'HCD0277447'
-   - 'HCD0021614'
-     #   - 'HCD0026119'
+     - 'HCD0277447'
+  # - 'HCD0021614'
+#   - 'HCD0026119'
 
   LOBE:
-   - '029'
-   - '009'
-     #   - '010'
+    - '007'
+#   - '028'
+#   - '036'
+#   - '040'
+    - '041'
+
+bug_fmriprep_v23:
+  - '041'
 
 template_surf: 'resources/tpl-fsLR/tpl-fsLR_den-32k_hemi-{hemi}_{surf}.surf.gii'
+template_fsavg_surf: 'resources/tpl-fsLR/tpl-fsLR_space-fsaverage_hemi-{hemi}_den-32k_{surf}.surf.gii'
 
 #atlases to actually use:
 atlases:

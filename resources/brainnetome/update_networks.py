@@ -6,7 +6,7 @@ text_file = "fsaverage.BN_Atlas.32k_fs_LR_updated.dlabel.labels.txt"
 output_file = "fsaverage.BN_Atlas.32k_fs_LR_updated.dlabel.labels.withnetworks.txt"
 
 # Load the TSV file into a DataFrame
-mapping_df = pd.read_csv(tsv_file, sep="\t")
+mapping_df = pd.read_csv(tsv_file, sep="\,")
 
 # Create a dictionary for quick lookup of New_Mapping
 mapping_dict = dict(zip(mapping_df['Name'], mapping_df['New_Mapping']))

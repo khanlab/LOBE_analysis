@@ -1,211 +1,211 @@
-Parcel_Index	Name	Original_Networks	New_Mapping
-1	L_A8m	Cont	SalVentAttn
-2	R_A8m	SalVentAttn	Cont
-3	L_A8dl	Default	Default
-4	R_A8dl	Cont	Default
-5	L_A9l	Default	Default
-6	R_A9l	Default	Default
-7	L_A6dl	DorsAttn	DorsAttn
-8	R_A6dl	DorsAttn	DorsAttn
-9	L_A6m	SomMot	SomMot
-10	R_A6m	SomMot	SalVentAttn
-11	L_A9m	Default	Default
-12	R_A9m	Cont	Default
-13	L_A10m	Default	Default
-14	R_A10m	Default	Default
-15	L_A9/46d	SalVentAttn	SalVentAttn
-16	R_A9/46d	Cont	Cont
-17	L_IFJ	Cont	Cont
-18	R_IFJ	Cont	Cont
-19	L_A46	Cont	Cont
-20	R_A46	Cont	Cont
-21	L_A9/46v	Cont	Cont
-22	R_A9/46v	Cont	Cont
-23	L_A8vl	Default	Default
-24	R_A8vl	Cont	Cont
-25	L_A6vl	DorsAttn	DorsAttn
-26	R_A6vl	DorsAttn	Cont
-27	L_A10l	Limbic	Default
-28	R_A10l	Cont	Cont
-29	L_A44d	Cont	Cont
-30	R_A44d	DorsAttn	Cont
-31	L_IFS	Cont	Cont
-32	R_IFS	Cont	Cont
-33	L_A45c	Default	Default
-34	R_A45c	Default	Default
-35	L_A45r	Default	Default
-36	R_A45r	Cont	Default
-37	L_A44op	SalVentAttn	SalVentAttn
-38	R_A44op	SalVentAttn	SalVentAttn
-39	L_A44v	SalVentAttn	SalVentAttn
-40	R_A44v	SalVentAttn	SalVentAttn
-41	L_A14m	Default	Default
-42	R_A14m	Default	Default
-43	L_A12/47o	Default	Cont
-44	R_A12/47o	Default	Cont
-45	L_A11l	Limbic	Limbic
-46	R_A11l	Cont	Limbic
-47	L_A11m	Limbic	Limbic
-48	R_A11m	Limbic	Limbic
-49	L_A13	Limbic	Limbic
-50	R_A13	Limbic	Limbic
-51	L_A12/47l	Default	Default
-52	R_A12/47l	Default	Cont
-53	L_A4hf	SomMot	SomMot
-54	R_A4hf	SomMot	SomMot
-55	L_A6cdl	DorsAttn	SomMot
-56	R_A6cdl	DorsAttn	DorsAttn
-57	L_A4ul	SomMot	SomMot
-58	R_A4ul	SomMot	SomMot
-59	L_A4t	SomMot	SomMot
-60	R_A4t	SomMot	SomMot
-61	L_A4tl	SalVentAttn	SalVentAttn
-62	R_A4tl	SalVentAttn	SalVentAttn
-63	L_A6cvl	DorsAttn	SalVentAttn
-64	R_A6cvl	DorsAttn	DorsAttn
-65	L_A1/2/3ll	SalVentAttn	SomMot
-66	R_A1/2/3ll	SomMot	SalVentAttn
-67	L_A4ll	SomMot	SomMot
-68	R_A4ll	SomMot	SomMot
-69	L_A38m	Limbic	Limbic
-70	R_A38m	Limbic	Limbic
-71	L_A41/42	SomMot	SomMot
-72	R_A41/42	SomMot	SomMot
-73	L_TE1.0/TE1.2	SomMot	SomMot
-74	R_TE1.0/TE1.2	SomMot	SomMot
-75	L_A22c	SomMot	Default
-76	R_A22c	SomMot	SomMot
-77	L_A38l	Limbic	Limbic
-78	R_A38l	Limbic	Default
-79	L_A22r	Default	Default
-80	R_A22r	Default	SomMot
-81	L_A21c	Default	Default
-82	R_A21c	Cont	Cont
-83	L_A21r	Default	Default
-84	R_A21r	Default	Default
-85	L_A37dl	DorsAttn	DorsAttn
-86	R_A37dl	DorsAttn	DorsAttn
-87	L_aSTS	Default	Default
-88	R_aSTS	Default	Default
-89	L_A20iv	Limbic	Limbic
-90	R_A20iv	Limbic	Limbic
-91	L_A37elv	DorsAttn	DorsAttn
-92	R_A37elv	DorsAttn	DorsAttn
-93	L_A20r	Limbic	Limbic
-94	R_A20r	Limbic	Limbic
-95	L_A20il	Default	Limbic
-96	R_A20il	Limbic	Limbic
-97	L_A37vl	DorsAttn	DorsAttn
-98	R_A37vl	DorsAttn	DorsAttn
-99	L_A20cl	Cont	Default
-100	R_A20cl	Cont	Cont
-101	L_A20cv	Limbic	Limbic
-102	R_A20cv	Limbic	Limbic
-103	L_A20rv	Limbic	Limbic
-104	R_A20rv	Limbic	Limbic
-105	L_A37mv	Vis	Vis
-106	R_A37mv	Vis	Vis
-107	L_A37lv	DorsAttn	DorsAttn
-108	R_A37lv	Vis	DorsAttn
-109	L_A35/36r	Limbic	Limbic
-110	R_A35/36r	Limbic	Limbic
-111	L_A35/36c	Limbic	Limbic
-112	R_A35/36c	Vis	Vis
-113	L_TL	Vis	Vis
-114	R_TL	Vis	Vis
-115	L_A28/34	Limbic	Limbic
-116	R_A28/34	Limbic	Limbic
-117	L_TI	Limbic	Limbic
-118	R_TI	Limbic	Limbic
-119	L_TH	Vis	Vis
-120	R_TH	Vis	Vis
-121	L_rpSTS	Default	Default
-122	R_rpSTS	Default	Default
-123	L_cpSTS	SalVentAttn	SalVentAttn
-124	R_cpSTS	SalVentAttn	SomMot
-125	L_A7r	DorsAttn	DorsAttn
-126	R_A7r	DorsAttn	DorsAttn
-127	L_A7c	DorsAttn	DorsAttn
-128	R_A7c	DorsAttn	DorsAttn
-129	L_A5l	DorsAttn	DorsAttn
-130	R_A5l	DorsAttn	SomMot
-131	L_A7pc	SomMot	SomMot
-132	R_A7pc	SomMot	DorsAttn
-133	L_A7ip	DorsAttn	DorsAttn
-134	R_A7ip	DorsAttn	DorsAttn
-135	L_A39c	Vis	Vis
-136	R_A39c	Vis	Vis
-137	L_A39rd	Cont	Cont
-138	R_A39rd	Cont	DorsAttn
-139	L_A40rd	DorsAttn	DorsAttn
-140	R_A40rd	DorsAttn	DorsAttn
-141	L_A40c	Default	Cont
-142	R_A40c	Cont	Cont
-143	L_A39rv	DorsAttn	Default
-144	R_A39rv	Default	Default
-145	L_A40rv	SomMot	SomMot
-146	R_A40rv	SomMot	SalVentAttn
-147	L_A7m	Cont	Cont
-148	R_A7m	Cont	Cont
-149	L_A5m	SomMot	SalVentAttn
-150	R_A5m	DorsAttn	DorsAttn
-151	L_dmPOS	Vis	Default
-152	R_dmPOS	Vis	Default
-153	L_A31	Default	Default
-154	R_A31	Default	Default
-155	L_A1/2/3ulhf	SomMot	SomMot
-156	R_A1/2/3ulhf	SomMot	SomMot
-157	L_A1/2/3tonIa	SomMot	SomMot
-158	R_A1/2/3tonIa	SomMot	SomMot
-159	L_A2	DorsAttn	SomMot
-160	R_A2	SomMot	SomMot
-161	L_A1/2/3tru	SomMot	SomMot
-162	R_A1/2/3tru	SomMot	SomMot
-163	L_G	SomMot	SomMot
-164	R_G	SomMot	SomMot
-165	L_vIa	0	Default
-166	R_vIa	Cont	Cont
-167	L_dIa	SalVentAttn	SalVentAttn
-168	R_dIa	SalVentAttn	SalVentAttn
-169	L_vId/vIg	SalVentAttn	SalVentAttn
-170	R_vId/vIg	SalVentAttn	SalVentAttn
-171	L_dIg	SomMot	SomMot
-172	R_dIg	SomMot	SomMot
-173	L_dId	SalVentAttn	SalVentAttn
-174	R_dId	SalVentAttn	SalVentAttn
-175	L_A23d	Default	Default
-176	R_A23d	Default	Default
-177	L_A24rv	0	Cont
-178	R_A24rv	0	Default
-179	L_A32p	Default	Default
-180	R_A32p	SalVentAttn	Cont
-181	L_A23v	Default	Default
-182	R_A23v	Vis	Default
-183	L_A24cd	SalVentAttn	SalVentAttn
-184	R_A24cd	SalVentAttn	SalVentAttn
-185	L_A23c	SalVentAttn	SalVentAttn
-186	R_A23c	SalVentAttn	SalVentAttn
-187	L_A32sg	Default	Default
-188	R_A32sg	Default	Default
-189	L_cLinG	Vis	Vis
-190	R_cLinG	Vis	Vis
-191	L_rCunG	Vis	Vis
-192	R_rCunG	Vis	Vis
-193	L_cCunG	Vis	Vis
-194	R_cCunG	Vis	Vis
-195	L_rLinG	Vis	Vis
-196	R_rLinG	Vis	Vis
-197	L_vmPOS	Vis	Vis
-198	R_vmPOS	Vis	Vis
-199	L_mOccG	Vis	Vis
-200	R_mOccG	Vis	Vis
-201	L_V5/MT+	DorsAttn	DorsAttn
-202	R_V5/MT+	Vis	Vis
-203	L_OPC	Vis	Vis
-204	R_OPC	Vis	Vis
-205	L_iOccG	Vis	Vis
-206	R_iOccG	Vis	Vis
-207	L_msOccG	Vis	Vis
-208	R_msOccG	Vis	Vis
-209	L_lsOccG	Vis	Vis
-210	R_lsOccG	Vis	Vis
+Parcel_Index,Name,Original_Networks,New_Mapping_unpaired,New_Mapping
+1,L_A8m,Cont,SalVentAttn,Cont
+2,R_A8m,SalVentAttn,Cont,Cont
+3,L_A8dl,Default,Default,Default
+4,R_A8dl,Cont,Default,Default
+5,L_A9l,Default,Default,Default
+6,R_A9l,Default,Default,Default
+7,L_A6dl,DorsAttn,DorsAttn,DorsAttn
+8,R_A6dl,DorsAttn,DorsAttn,DorsAttn
+9,L_A6m,SomMot,SomMot,SomMot
+10,R_A6m,SomMot,SalVentAttn,SomMot
+11,L_A9m,Default,Default,Default
+12,R_A9m,Cont,Default,Default
+13,L_A10m,Default,Default,Default
+14,R_A10m,Default,Default,Default
+15,L_A9/46d,SalVentAttn,SalVentAttn,SalVentAttn
+16,R_A9/46d,Cont,Cont,SalVentAttn
+17,L_IFJ,Cont,Cont,Cont
+18,R_IFJ,Cont,Cont,Cont
+19,L_A46,Cont,Cont,Cont
+20,R_A46,Cont,Cont,Cont
+21,L_A9/46v,Cont,Cont,Cont
+22,R_A9/46v,Cont,Cont,Cont
+23,L_A8vl,Default,Default,Cont
+24,R_A8vl,Cont,Cont,Cont
+25,L_A6vl,DorsAttn,DorsAttn,DorsAttn
+26,R_A6vl,DorsAttn,Cont,DorsAttn
+27,L_A10l,Limbic,Default,Default
+28,R_A10l,Cont,Cont,Default
+29,L_A44d,Cont,Cont,Cont
+30,R_A44d,DorsAttn,Cont,Cont
+31,L_IFS,Cont,Cont,Cont
+32,R_IFS,Cont,Cont,Cont
+33,L_A45c,Default,Default,Default
+34,R_A45c,Default,Default,Default
+35,L_A45r,Default,Default,Default
+36,R_A45r,Cont,Default,Default
+37,L_A44op,SalVentAttn,SalVentAttn,SalVentAttn
+38,R_A44op,SalVentAttn,SalVentAttn,SalVentAttn
+39,L_A44v,SalVentAttn,SalVentAttn,SalVentAttn
+40,R_A44v,SalVentAttn,SalVentAttn,SalVentAttn
+41,L_A14m,Default,Default,Default
+42,R_A14m,Default,Default,Default
+43,L_A12/47o,Default,Cont,Cont
+44,R_A12/47o,Default,Cont,Cont
+45,L_A11l,Limbic,Limbic,Limbic
+46,R_A11l,Cont,Limbic,Limbic
+47,L_A11m,Limbic,Limbic,Limbic
+48,R_A11m,Limbic,Limbic,Limbic
+49,L_A13,Limbic,Limbic,Limbic
+50,R_A13,Limbic,Limbic,Limbic
+51,L_A12/47l,Default,Default,Default
+52,R_A12/47l,Default,Cont,Default
+53,L_A4hf,SomMot,SomMot,SomMot
+54,R_A4hf,SomMot,SomMot,SomMot
+55,L_A6cdl,DorsAttn,SomMot,DorsAttn
+56,R_A6cdl,DorsAttn,DorsAttn,DorsAttn
+57,L_A4ul,SomMot,SomMot,SomMot
+58,R_A4ul,SomMot,SomMot,SomMot
+59,L_A4t,SomMot,SomMot,SomMot
+60,R_A4t,SomMot,SomMot,SomMot
+61,L_A4tl,SalVentAttn,SalVentAttn,SalVentAttn
+62,R_A4tl,SalVentAttn,SalVentAttn,SalVentAttn
+63,L_A6cvl,DorsAttn,SalVentAttn,SalVentAttn
+64,R_A6cvl,DorsAttn,DorsAttn,SalVentAttn
+65,L_A1/2/3ll,SalVentAttn,SomMot,SomMot
+66,R_A1/2/3ll,SomMot,SalVentAttn,SomMot
+67,L_A4ll,SomMot,SomMot,SomMot
+68,R_A4ll,SomMot,SomMot,SomMot
+69,L_A38m,Limbic,Limbic,Limbic
+70,R_A38m,Limbic,Limbic,Limbic
+71,L_A41/42,SomMot,SomMot,SomMot
+72,R_A41/42,SomMot,SomMot,SomMot
+73,L_TE1.0/TE1.2,SomMot,SomMot,SomMot
+74,R_TE1.0/TE1.2,SomMot,SomMot,SomMot
+75,L_A22c,SomMot,Default,SomMot
+76,R_A22c,SomMot,SomMot,SomMot
+77,L_A38l,Limbic,Limbic,Limbic
+78,R_A38l,Limbic,Default,Limbic
+79,L_A22r,Default,Default,Default
+80,R_A22r,Default,SomMot,Default
+81,L_A21c,Default,Default,Default
+82,R_A21c,Cont,Cont,Default
+83,L_A21r,Default,Default,Default
+84,R_A21r,Default,Default,Default
+85,L_A37dl,DorsAttn,DorsAttn,DorsAttn
+86,R_A37dl,DorsAttn,DorsAttn,DorsAttn
+87,L_aSTS,Default,Default,Default
+88,R_aSTS,Default,Default,Default
+89,L_A20iv,Limbic,Limbic,Limbic
+90,R_A20iv,Limbic,Limbic,Limbic
+91,L_A37elv,DorsAttn,DorsAttn,DorsAttn
+92,R_A37elv,DorsAttn,DorsAttn,DorsAttn
+93,L_A20r,Limbic,Limbic,Limbic
+94,R_A20r,Limbic,Limbic,Limbic
+95,L_A20il,Default,Limbic,Limbic
+96,R_A20il,Limbic,Limbic,Limbic
+97,L_A37vl,DorsAttn,DorsAttn,DorsAttn
+98,R_A37vl,DorsAttn,DorsAttn,DorsAttn
+99,L_A20cl,Cont,Default,Cont
+100,R_A20cl,Cont,Cont,Cont
+101,L_A20cv,Limbic,Limbic,Limbic
+102,R_A20cv,Limbic,Limbic,Limbic
+103,L_A20rv,Limbic,Limbic,Limbic
+104,R_A20rv,Limbic,Limbic,Limbic
+105,L_A37mv,Vis,Vis,Vis
+106,R_A37mv,Vis,Vis,Vis
+107,L_A37lv,DorsAttn,DorsAttn,DorsAttn
+108,R_A37lv,Vis,DorsAttn,DorsAttn
+109,L_A35/36r,Limbic,Limbic,Limbic
+110,R_A35/36r,Limbic,Limbic,Limbic
+111,L_A35/36c,Limbic,Limbic,Limbic
+112,R_A35/36c,Vis,Vis,Limbic
+113,L_TL,Vis,Vis,Vis
+114,R_TL,Vis,Vis,Vis
+115,L_A28/34,Limbic,Limbic,Limbic
+116,R_A28/34,Limbic,Limbic,Limbic
+117,L_TI,Limbic,Limbic,Limbic
+118,R_TI,Limbic,Limbic,Limbic
+119,L_TH,Vis,Vis,Vis
+120,R_TH,Vis,Vis,Vis
+121,L_rpSTS,Default,Default,Default
+122,R_rpSTS,Default,Default,Default
+123,L_cpSTS,SalVentAttn,SalVentAttn,SomMot
+124,R_cpSTS,SalVentAttn,SomMot,SomMot
+125,L_A7r,DorsAttn,DorsAttn,DorsAttn
+126,R_A7r,DorsAttn,DorsAttn,DorsAttn
+127,L_A7c,DorsAttn,DorsAttn,DorsAttn
+128,R_A7c,DorsAttn,DorsAttn,DorsAttn
+129,L_A5l,DorsAttn,DorsAttn,DorsAttn
+130,R_A5l,DorsAttn,SomMot,DorsAttn
+131,L_A7pc,SomMot,SomMot,SomMot
+132,R_A7pc,SomMot,DorsAttn,SomMot
+133,L_A7ip,DorsAttn,DorsAttn,DorsAttn
+134,R_A7ip,DorsAttn,DorsAttn,DorsAttn
+135,L_A39c,Vis,Vis,Vis
+136,R_A39c,Vis,Vis,Vis
+137,L_A39rd,Cont,Cont,Cont
+138,R_A39rd,Cont,DorsAttn,Cont
+139,L_A40rd,DorsAttn,DorsAttn,DorsAttn
+140,R_A40rd,DorsAttn,DorsAttn,DorsAttn
+141,L_A40c,Default,Cont,Cont
+142,R_A40c,Cont,Cont,Cont
+143,L_A39rv,DorsAttn,Default,Default
+144,R_A39rv,Default,Default,Default
+145,L_A40rv,SomMot,SomMot,SalVentAttn
+146,R_A40rv,SomMot,SalVentAttn,SalVentAttn
+147,L_A7m,Cont,Cont,Cont
+148,R_A7m,Cont,Cont,Cont
+149,L_A5m,SomMot,SalVentAttn,SalVentAttn
+150,R_A5m,DorsAttn,DorsAttn,SalVentAttn
+151,L_dmPOS,Vis,Default,Default
+152,R_dmPOS,Vis,Default,Default
+153,L_A31,Default,Default,Default
+154,R_A31,Default,Default,Default
+155,L_A1/2/3ulhf,SomMot,SomMot,SomMot
+156,R_A1/2/3ulhf,SomMot,SomMot,SomMot
+157,L_A1/2/3tonIa,SomMot,SomMot,SomMot
+158,R_A1/2/3tonIa,SomMot,SomMot,SomMot
+159,L_A2,DorsAttn,SomMot,Limbic
+160,R_A2,SomMot,SomMot,Limbic
+161,L_A1/2/3tru,SomMot,SomMot,SomMot
+162,R_A1/2/3tru,SomMot,SomMot,SomMot
+163,L_G,SomMot,SomMot,Vis
+164,R_G,SomMot,SomMot,Vis
+165,L_vIa,0,Default,Default
+166,R_vIa,Cont,Cont,Default
+167,L_dIa,SalVentAttn,SalVentAttn,SalVentAttn
+168,R_dIa,SalVentAttn,SalVentAttn,SalVentAttn
+169,L_vId/vIg,SalVentAttn,SalVentAttn,SalVentAttn
+170,R_vId/vIg,SalVentAttn,SalVentAttn,SalVentAttn
+171,L_dIg,SomMot,SomMot,SomMot
+172,R_dIg,SomMot,SomMot,SomMot
+173,L_dId,SalVentAttn,SalVentAttn,SalVentAttn
+174,R_dId,SalVentAttn,SalVentAttn,SalVentAttn
+175,L_A23d,Default,Default,Default
+176,R_A23d,Default,Default,Default
+177,L_A24rv,0,Cont,Cont
+178,R_A24rv,0,Default,Cont
+179,L_A32p,Default,Default,Default
+180,R_A32p,SalVentAttn,Cont,Default
+181,L_A23v,Default,Default,Default
+182,R_A23v,Vis,Default,Default
+183,L_A24cd,SalVentAttn,SalVentAttn,SalVentAttn
+184,R_A24cd,SalVentAttn,SalVentAttn,SalVentAttn
+185,L_A23c,SalVentAttn,SalVentAttn,SalVentAttn
+186,R_A23c,SalVentAttn,SalVentAttn,SalVentAttn
+187,L_A32sg,Default,Default,Default
+188,R_A32sg,Default,Default,Default
+189,L_cLinG,Vis,Vis,Vis
+190,R_cLinG,Vis,Vis,Vis
+191,L_rCunG,Vis,Vis,Vis
+192,R_rCunG,Vis,Vis,Vis
+193,L_cCunG,Vis,Vis,Vis
+194,R_cCunG,Vis,Vis,Vis
+195,L_rLinG,Vis,Vis,Vis
+196,R_rLinG,Vis,Vis,Vis
+197,L_vmPOS,Vis,Vis,Vis
+198,R_vmPOS,Vis,Vis,Vis
+199,L_mOccG,Vis,Vis,Vis
+200,R_mOccG,Vis,Vis,Vis
+201,L_V5/MT+,DorsAttn,DorsAttn,Vis
+202,R_V5/MT+,Vis,Vis,Vis
+203,L_OPC,Vis,Vis,Vis
+204,R_OPC,Vis,Vis,Vis
+205,L_iOccG,Vis,Vis,Vis
+206,R_iOccG,Vis,Vis,Vis
+207,L_msOccG,Vis,Vis,Vis
+208,R_msOccG,Vis,Vis,Vis
+209,L_lsOccG,Vis,Vis,Vis
+210,R_lsOccG,Vis,Vis,Vis

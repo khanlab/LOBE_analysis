@@ -107,12 +107,13 @@ rule resample_parc_volume_to_mni_boldref:
         "wb_command -volume-resample  {input.dseg}  {input.ref} ENCLOSING_VOXEL {output.dseg}"
 
 
+
 rule create_cifti_label_boldref:
     input:
         structure_label_volume=rules.resample_structure_volume_to_mni_boldref.output.dseg,
         label_volume=rules.resample_parc_volume_to_mni_boldref.output.dseg,
-        label_left="resources/atlas/atlas-{atlas}_hemi-L_parc.label.gii",
-        label_right="resources/atlas/atlas-{atlas}_hemi-R_parc.label.gii",
+        label_left="resources/atlas/atlas-{atlas}_space-fsLR_hemi-L_parc.label.gii", 
+        label_right="resources/atlas/atlas-{atlas}_space-fsLR_hemi-R_parc.label.gii",
     output:
         cifti=bids(
             root=root,

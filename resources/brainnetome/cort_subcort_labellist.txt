@@ -1,4 +1,4 @@
-L_A8m_SalVentAttn
+L_A8m_Cont
 1 0 255 0 255
 R_A8m_Cont
 2 0 0 255 255
@@ -16,7 +16,7 @@ R_A6dl_DorsAttn
 8 0 106 9 255
 L_A6m_SomMot
 9 158 70 53 255
-R_A6m_SalVentAttn
+R_A6m_SomMot
 10 62 0 106 255
 L_A9m_Default
 11 255 237 255 255
@@ -28,7 +28,7 @@ R_A10m_Default
 14 79 123 141 255
 L_A9-46d_SalVentAttn
 15 220 255 0 255
-R_A9-46d_Cont
+R_A9-46d_SalVentAttn
 16 255 0 106 255
 L_IFJ_Cont
 17 237 132 0 255
@@ -42,17 +42,17 @@ L_A9-46v_Cont
 21 158 185 141 255
 R_A9-46v_Cont
 22 141 106 176 255
-L_A8vl_Default
+L_A8vl_Cont
 23 97 185 0 255
 R_A8vl_Cont
 24 255 158 176 255
 L_A6vl_DorsAttn
 25 0 44 97 255
-R_A6vl_Cont
+R_A6vl_DorsAttn
 26 62 193 255 255
 L_A10l_Default
 27 62 79 44 255
-R_A10l_Cont
+R_A10l_Default
 28 167 9 167 255
 L_A44d_Cont
 29 97 62 79 255
@@ -100,13 +100,13 @@ R_A13_Limbic
 50 176 255 211 255
 L_A12-47l_Default
 51 0 176 79 255
-R_A12-47l_Cont
+R_A12-47l_Default
 52 88 53 0 255
 L_A4hf_SomMot
 53 0 106 167 255
 R_A4hf_SomMot
 54 149 167 229 255
-L_A6cdl_SomMot
+L_A6cdl_DorsAttn
 55 141 193 97 255
 R_A6cdl_DorsAttn
 56 35 123 97 255
@@ -124,11 +124,11 @@ R_A4tl_SalVentAttn
 62 149 255 62 255
 L_A6cvl_SalVentAttn
 63 132 106 88 255
-R_A6cvl_DorsAttn
+R_A6cvl_SalVentAttn
 64 0 255 202 255
 L_A1-2-3ll_SomMot
 65 202 149 44 255
-R_A1-2-3ll_SalVentAttn
+R_A1-2-3ll_SomMot
 66 255 0 62 255
 L_A4ll_SomMot
 67 106 132 62 255
@@ -146,21 +146,21 @@ L_TE1.0-TE1.2_SomMot
 73 255 158 97 255
 R_TE1.0-TE1.2_SomMot
 74 132 70 185 255
-L_A22c_Default
+L_A22c_SomMot
 75 176 70 158 255
 R_A22c_SomMot
 76 149 149 255 255
 L_A38l_Limbic
 77 255 106 123 255
-R_A38l_Default
+R_A38l_Limbic
 78 0 106 255 255
 L_A22r_Default
 79 114 9 176 255
-R_A22r_SomMot
+R_A22r_Default
 80 176 167 79 255
 L_A21c_Default
 81 229 79 0 255
-R_A21c_Cont
+R_A21c_Default
 82 0 0 70 255
 L_A21r_Default
 83 53 35 18 255
@@ -194,7 +194,7 @@ L_A37vl_DorsAttn
 97 114 141 123 255
 R_A37vl_DorsAttn
 98 193 0 132 255
-L_A20cl_Default
+L_A20cl_Cont
 99 0 18 44 255
 R_A20cl_Cont
 100 106 220 202 255
@@ -220,7 +220,7 @@ R_A35-36r_Limbic
 110 220 132 193 255
 L_A35-36c_Limbic
 111 114 0 114 255
-R_A35-36c_Vis
+R_A35-36c_Limbic
 112 211 193 141 255
 L_TL_Vis
 113 185 193 220 255
@@ -242,7 +242,7 @@ L_rpSTS_Default
 121 141 123 70 255
 R_rpSTS_Default
 122 0 141 185 255
-L_cpSTS_SalVentAttn
+L_cpSTS_SomMot
 123 9 62 211 255
 R_cpSTS_SomMot
 124 114 106 229 255
@@ -256,11 +256,11 @@ R_A7c_DorsAttn
 128 44 9 18 255
 L_A5l_DorsAttn
 129 193 79 44 255
-R_A5l_SomMot
+R_A5l_DorsAttn
 130 255 193 132 255
 L_A7pc_SomMot
 131 44 44 53 255
-R_A7pc_DorsAttn
+R_A7pc_SomMot
 132 53 220 255 255
 L_A7ip_DorsAttn
 133 211 53 62 255
@@ -272,7 +272,7 @@ R_A39c_Vis
 136 35 0 202 255
 L_A39rd_Cont
 137 211 220 123 255
-R_A39rd_DorsAttn
+R_A39rd_Cont
 138 123 53 0 255
 L_A40rd_DorsAttn
 139 167 0 211 255
@@ -286,7 +286,7 @@ L_A39rv_Default
 143 114 176 211 255
 R_A39rv_Default
 144 106 62 53 255
-L_A40rv_SomMot
+L_A40rv_SalVentAttn
 145 53 106 53 255
 R_A40rv_SalVentAttn
 146 220 62 185 255
@@ -296,7 +296,7 @@ R_A7m_Cont
 148 62 44 79 255
 L_A5m_SalVentAttn
 149 246 9 132 255
-R_A5m_DorsAttn
+R_A5m_SalVentAttn
 150 185 149 202 255
 L_dmPOS_Default
 151 220 18 18 255
@@ -314,21 +314,21 @@ L_A1-2-3tonIa_SomMot
 157 193 149 237 255
 R_A1-2-3tonIa_SomMot
 158 97 114 0 255
-L_A2_SomMot
+L_A2_Limbic
 159 255 132 185 255
-R_A2_SomMot
+R_A2_Limbic
 160 185 0 97 255
 L_A1-2-3tru_SomMot
 161 167 237 123 255
 R_A1-2-3tru_SomMot
 162 255 246 0 255
-L_G_SomMot
+L_G_Vis
 163 255 193 79 255
-R_G_SomMot
+R_G_Vis
 164 220 106 35 255
 L_vIa_Default
 165 123 0 35 255
-R_vIa_Cont
+R_vIa_Default
 166 193 255 88 255
 L_dIa_SalVentAttn
 167 158 185 176 255
@@ -352,11 +352,11 @@ R_A23d_Default
 176 123 123 132 255
 L_A24rv_Cont
 177 132 53 97 255
-R_A24rv_Default
+R_A24rv_Cont
 178 106 158 106 255
 L_A32p_Default
 179 149 97 106 255
-R_A32p_Cont
+R_A32p_Default
 180 106 202 88 255
 L_A23v_Default
 181 211 158 158 255
@@ -398,7 +398,7 @@ L_mOccG_Vis
 199 97 158 158 255
 R_mOccG_Vis
 200 202 0 202 255
-L_V5-MT+_DorsAttn
+L_V5-MT+_Vis
 201 35 106 220 255
 R_V5-MT+_Vis
 202 35 44 0 255
