@@ -1,2 +1,12 @@
 resources/tabular/*.tsv
 resources/merged*.tsv
+.ipynb_checkpoints
+.snakemake
+.*
+!.gitignore
+jobs
+logs
+results
+snakebatch
+snakebatch_dwi
+__pycache__
