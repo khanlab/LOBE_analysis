@@ -1,6 +1,6 @@
 #in_root: '$HOME' #for narval
-in_root: '$HOME/beluga' #for cbs server
-#in_root: '$HOME' #for graham
+#in_root: '$HOME/beluga' #for cbs server
+in_root: '$HOME' #for graham
 
 groups:
   dre: 'dre_first_scan == 1'
@@ -103,7 +103,7 @@ in_agg_zip:
 
 in_tabular:
   HCP: 'projects/ctb-akhanf/ext-data/hcp_development/HCPDevImagingManifestBeh/ndar_subject01.txt'
-  LOBE: 'scratch/raw/baseline/clinical/participants.tsv' #<-- have this point to most up-to-date clinical data
+  LOBE: 'projects/ctb-akhanf-ab/cfmm-bids/Khan/LOBE/raw/baseline/clinical/participants.tsv' #<-- have this point to most up-to-date clinical data
 
   #LOBE: '/lustre04/scratch/mtayl84/raw/baseline/clinical/participants.tsv' #<-- have this point to most up-to-date clinical data
 
@@ -164,7 +164,7 @@ datasets:
   - HCP
   - LOBE
 
-use_test_subjects: True
+use_test_subjects: False
 
 test_subjects: 
   HCP: 
@@ -180,6 +180,9 @@ test_subjects:
     - '041'
 
 bug_fmriprep_v23:
+  - '028'
+  - '033'
+  - '040'
   - '041'
 
 template_surf: 'resources/tpl-fsLR/tpl-fsLR_den-32k_hemi-{hemi}_{surf}.surf.gii'
