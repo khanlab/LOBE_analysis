@@ -22,7 +22,7 @@ rule get_from_zip:
     input:
         zip=get_zip_file,
     output:
-        "{app}/{dataset}/{file}",  # you could add temp() around this to extract on the fly and not store it
+        temp("{app}/{dataset}/{file}"),  # you could add temp() around this to extract on the fly and not store it
     group:
         "grouped_subject"
     shell:
